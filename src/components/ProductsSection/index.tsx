@@ -48,16 +48,16 @@ export function ProductsSection() {
                     width: 10 * 300,
                     marginLeft: scrollX
                 }}>
-                    <ProductCard index={1} />
-                    <ProductCard index={2} />
-                    <ProductCard index={3} />
-                    <ProductCard index={4} />
-                    <ProductCard index={5} />
-                    <ProductCard index={6} />
-                    <ProductCard index={7} />
-                    <ProductCard index={8} />
-                    <ProductCard index={9} />
-                    <ProductCard index={10} />
+                    <ProductCard width={250} />
+                    <ProductCard width={250} />
+                    <ProductCard width={250} />
+                    <ProductCard width={250} />
+                    <ProductCard width={250} />
+                    <ProductCard width={250} />
+                    <ProductCard width={250} />
+                    <ProductCard width={250} />
+                    <ProductCard width={250} />
+                    <ProductCard width={250} />
                 </div>
             </div>
         </section>

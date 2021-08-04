@@ -1,6 +1,4 @@
 .card {
-    width: 250px;
-    height: 350px;
     border-radius: 5px;
     background: var(--background);
     transform: scale(.9);
@@ -9,5 +7,24 @@
 
     &:hover {
         transform: scale(.95);
+    }
+
+    img {
+        object-fit: contain;
+    }
+
+    .content {
+        padding: 1rem;
+        text-align: center;
+
+        p {
+            margin: 1rem 0 1.5rem;
+        }
+
+        footer {
+            padding-top: .75rem;
+            border-top: 1px solid var(--font);
+            font-size: 1.5rem;
+        }
     }
 }
