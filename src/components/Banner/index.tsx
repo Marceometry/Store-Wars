@@ -19,7 +19,7 @@ export function Banner() {
 
                 <div className={style.content}>
                     <h1>Dark Side</h1>
-                    <p>Sinta o poder do Lado Negro com nossos produtos Sith.</p>
+                    <p>Sinta o poder do Lado Sombrio com nossos produtos Sith.</p>
 
                     <Link href="/">
                         <a>Ver Produtos</a>

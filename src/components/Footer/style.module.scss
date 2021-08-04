@@ -1,0 +1,16 @@
+.footer {
+    padding: 6rem;
+    background: var(--highlightBG);
+    border-top: 1px solid var(--outline);
+    font-family: "Mandalore", sans-serif;
+    letter-spacing: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    a {
+        color: var(--primary);
+    }
+}

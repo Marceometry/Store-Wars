@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Mandalore";
+    src: url("/fonts/Mandalore/mandalore.ttf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Mandalore Title";
+    src: url("/fonts/Mandalore/mandaloretitle.ttf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+// @font-face {
+//     font-family: "Distant Galaxy";
+//     src: url("/fonts/DistantGalaxy/SF Distant Galaxy.ttf");
+//     font-style: normal;
+//     font-weight: 400;
+//     font-display: swap;
+// }
+
+/* responsive fonts */
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 87.5%;
+    }
+}

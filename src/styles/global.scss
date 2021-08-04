@@ -11,6 +11,11 @@ body {
   color: var(--font);
 }
 
+h1 {
+  font-family: "Mandalore Title", "Mandalore", sans-serif;
+  font-size: 3rem;
+}
+
 button, a {
   all: unset;
   cursor: pointer;
@@ -18,6 +23,10 @@ button, a {
 
 fieldset, input {
   all: unset
+}
+
+input::placeholder {
+  font-family: "Mandalore Title", sans-serif;
 }
 
 
@@ -47,17 +56,4 @@ fieldset, input {
 
 #nprogress .peg {
   box-shadow: 0 0 10px var(--primary), 0 0 5px var(--primary);
-}
-
-/* responsive fonts */
-@media (max-width: 1080px) {
-  html {
-    font-size: 93.75%;
-  }
-}
-
-@media (max-width: 768px) {
-  html {
-    font-size: 87.5%;
-  }
 }

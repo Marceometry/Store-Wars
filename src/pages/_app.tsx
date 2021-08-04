@@ -4,6 +4,7 @@ import Router from 'next/router'
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 import '../styles/global.scss'
+import '../styles/fonts.scss'
 
 Nprogress.configure({
   showSpinner: false,

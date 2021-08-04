@@ -56,7 +56,7 @@
             }
 
             h1 {
-                font-size: 3rem;
+                color: var(--red);
             }
 
             p {
@@ -89,6 +89,10 @@
             .content {
                 align-items: flex-start;
                 text-align: left;
+
+                h1 {
+                    color: var(--blue);
+                }
             
                 a {
                     border: 1px solid var(--blue);

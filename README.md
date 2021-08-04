@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Store Wars" src="public/logo.png" width="30%">
+  <img alt="Store Wars" src="public/images/logo.png" width="30%">
 </h1>
 
 <p align="center">
