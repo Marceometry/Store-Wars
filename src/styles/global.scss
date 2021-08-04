@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: var(--bodyBackground);
+  font: 400 1rem sans-serif;
+  color: var(--font);
+}
+
+button, a {
+  all: unset;
+  cursor: pointer;
+}
+
+fieldset, input {
+  all: unset
+}
+
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
+
+#nprogress {
+  position: relative;
+  z-index: 999;
+}
+
+#nprogress .bar {
+  background: red;
+  height: 3px;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px red, 0 0 5px red;
+}
+
+/* responsive fonts */
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+}

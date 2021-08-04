@@ -1,0 +1,31 @@
+.toggleThemeButton {
+  position: relative;
+  font-size: 0;
+
+  .buttonBG {
+    flex: 1;
+    width: 4rem;
+    height: 2rem;
+
+    padding: 0 5px 0 7px;
+    border-radius: 25px;
+    border: 1px solid var(--outline);
+    
+    display: flex;
+    align-items: center;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .animateToggle {
+    flex: 0;
+    transition: flex .2s;
+  }
+
+  &.dark .animateToggle {
+    flex: auto;
+  }
+}

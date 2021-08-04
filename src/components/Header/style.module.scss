@@ -1,0 +1,26 @@
+.header {
+    padding: 1.5rem 4.5vw;
+    border-bottom: 1px solid var(--outline);
+    background: var(--background);
+    display: flex;
+    justify-content: space-between;
+
+    > div {
+        gap: 3.5vw;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 80px;
+        }
+
+        &:last-child {
+            gap: 1.5rem;
+        }
+
+        > svg {
+            width: 2.25rem;
+            height: 2.25rem;
+        }
+    }
+}
