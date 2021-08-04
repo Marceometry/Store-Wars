@@ -15,14 +15,16 @@ export const themes = {
         yellow: colors.yellow,
     },
     light: {
-        bodyBackground: colors.white,
-        background: colors.yellow,
+        bodyBackground: colors.grayLight,
+        highlightBG: colors.yellow,
+        background: colors.white,
         outline: colors.grayDark,
         font: colors.grayDark,
         primary: colors.blue
     },
     dark: {
         bodyBackground: colors.grayDark,
+        highlightBG: colors.black,
         background: colors.black,
         outline: colors.yellow,
         font: colors.grayLight,
