@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app'
-import '../styles/global.scss'
+import { ThemeContextProvider } from '../theme/ThemeContext'
 import Router from 'next/router'
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { ThemeContextProvider } from '../theme/ThemeContext'
+import '../styles/global.scss'
 
 Nprogress.configure({
   showSpinner: false,
