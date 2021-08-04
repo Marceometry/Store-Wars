@@ -55,8 +55,8 @@ export function ProductsSection({ products, type, title }: ProductsSectionProps)
                     width: 10 * 300,
                     marginLeft: scrollX
                 }}>
-                    {products.map(product => (
-                        <ProductCard width={250} product={product} />
+                    {products.map((product, index) => (
+                        <ProductCard key={product.id + index} width={250} product={product} />
                     ))}
                 </div>
             </div>
