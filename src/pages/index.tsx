@@ -25,8 +25,8 @@ export default function Home() {
         
         <ProductsSection
           products={products}
-          type="featured"
-          title="Produtos em Destaque"
+          type="sale"
+          title="Em Promoção"
         />
       </main>
 

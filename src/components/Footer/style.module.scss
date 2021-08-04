@@ -1,5 +1,6 @@
 .footer {
     padding: 6rem;
+    margin-top: 4rem;
     background: var(--highlightBG);
     border-top: 1px solid var(--outline);
     font-family: "Mandalore", sans-serif;
@@ -9,6 +10,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    p {
+        font-size: 2rem;
+    }
 
     a {
         color: var(--primary);
