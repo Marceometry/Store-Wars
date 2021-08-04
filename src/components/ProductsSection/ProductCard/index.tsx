@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Product } from '../../../data/products'
 import style from './style.module.scss'
 
@@ -9,7 +10,8 @@ type ProductCardProps = {
 
 export function ProductCard({ width, product }: ProductCardProps) {
     return (
-        <div className={style.card} style={{ width }}>
+        <Link href="/">
+        <a className={style.card} style={{ width }}>
             <Image width={width} height={width} src={`/images/products/${product.id}/${product.images[0]}`} alt="Produto" />
 
             <div className={style.content}>
@@ -18,6 +20,7 @@ export function ProductCard({ width, product }: ProductCardProps) {
 
                 <footer>R$ {product.price},00</footer>
             </div>
-        </div>
+        </a>
+        </Link>
     )
 }

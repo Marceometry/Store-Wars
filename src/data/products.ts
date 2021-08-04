@@ -15,7 +15,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
     {
@@ -24,7 +24,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
     {
@@ -33,7 +33,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
     {
@@ -42,7 +42,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
     {
@@ -51,7 +51,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
     {
@@ -60,7 +60,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
     {
@@ -69,7 +69,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
     {
@@ -78,7 +78,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
     {
@@ -87,7 +87,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
     {
@@ -96,7 +96,7 @@ const products = [
             "atat-walker.png"
         ],
         name: "Lego ATAT Walker",
-        description: "Recrie a batalha de Hoth com este símbolo imperial.",
+        description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499
     },
 ]
