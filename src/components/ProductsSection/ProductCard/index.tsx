@@ -1,20 +1,22 @@
 import Image from 'next/image'
+import { Product } from '../../../data/products'
 import style from './style.module.scss'
 
 type ProductCardProps = {
-    width: number,
+    width: number
+    product: Product
 }
 
-export function ProductCard({ width }: ProductCardProps) {
+export function ProductCard({ width, product }: ProductCardProps) {
     return (
         <div className={style.card} style={{ width }}>
-            <Image width={width} height={width} src="/lego.png" alt="Produto" />
+            <Image width={width} height={width} src={`/images/products/${product.id}/${product.images[0]}`} alt="Produto" />
 
             <div className={style.content}>
-                <h2>Lego ATAT Walker</h2>
-                <p>Recrie a batalha de Hoth com este símbolo imperial.</p>
+                <h2>{product.name}</h2>
+                <p>{product.description}</p>
 
-                <footer>R$ 1499,00</footer>
+                <footer>R$ {product.price},00</footer>
             </div>
         </div>
     )

@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { Banner } from '../components/Banner'
 import { Header } from '../components/Header'
 import { ProductsSection } from '../components/ProductsSection'
+import products from '../data/products'
 
 export default function Home() {
   return (
@@ -15,8 +16,17 @@ export default function Home() {
       <Banner />
 
       <main>
-        <ProductsSection />
-        <ProductsSection />
+        <ProductsSection
+          products={products}
+          type="featured"
+          title="Produtos em Destaque"
+        />
+        
+        <ProductsSection
+          products={products}
+          type="featured"
+          title="Produtos em Destaque"
+        />
       </main>
     </>
   )

@@ -9,7 +9,7 @@ export function Banner() {
                 <Image
                     width={1920}
                     height={576}
-                    src="/banner.jpg"
+                    src="/images/banner.jpg"
                     alt="Banner"
                 />
             </div>

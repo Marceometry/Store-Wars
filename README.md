@@ -11,7 +11,7 @@
 <br>
 
 <p align="center">
-  <img alt="Project Mockup" src="public/banner.jpg" width="100%">
+  <img alt="Project Mockup" src="public/images/banner.jpg" width="100%">
 </p>
 
 ## 🧪 Tecnologias
