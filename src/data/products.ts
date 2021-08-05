@@ -25,7 +25,7 @@ const products = [
         ],
         name: "Camisa Mestre Yoda",
         description: "Branca, tamanho M",
-        price: 49
+        price: 49.99
     },
     {
         id: "atat-walker",

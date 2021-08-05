@@ -18,7 +18,7 @@ export function ProductCard({ width, product }: ProductCardProps) {
                 <h2>{product.name}</h2>
                 <p>{product.description}</p>
 
-                <footer>R$ {product.price},00</footer>
+                <footer>R${product.price.toLocaleString('pt-BR')}</footer>
             </div>
         </a>
         </Link>

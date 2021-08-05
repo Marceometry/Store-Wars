@@ -1,0 +1,25 @@
+.container {
+    width: fit-content;
+    display: flex;
+
+    div {
+        display: flex;
+    }
+
+    aside {
+        margin-right: 1rem;
+
+        > div {
+            margin-bottom: .5rem;
+        }
+    }
+
+    img {
+        border-radius: 5px;
+        border: 2px solid var(--bodyBackground) !important;
+
+        &.active {
+            border: 2px solid var(--yellow) !important;
+        }
+    }
+}

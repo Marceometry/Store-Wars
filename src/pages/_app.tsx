@@ -1,8 +1,12 @@
 import type { AppProps } from 'next/app'
 import { ThemeContextProvider } from '../theme/ThemeContext'
+import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
+
 import Router from 'next/router'
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
+
 import '../styles/global.scss'
 import '../styles/fonts.scss'
 
@@ -26,7 +30,9 @@ Router.events.on('routeChangeError', () => {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeContextProvider>
+      <Header />
       <Component {...pageProps} />
+      <Footer />
     </ThemeContextProvider>
   )
 }

@@ -5,15 +5,19 @@
 }
 
 body {
-  height: 100vh;
   background: var(--bodyBackground);
   font: 400 1rem sans-serif;
   color: var(--font);
 }
 
+#__next {
+  height: 100vh;
+}
+
 h1 {
   font-family: "Mandalore Title", "Mandalore", sans-serif;
   font-size: 3rem;
+  letter-spacing: 0;
 }
 
 button, a {
