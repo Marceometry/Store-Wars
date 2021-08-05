@@ -1,9 +1,10 @@
 .container {
-    padding: 1.5rem 2rem;
+    max-width: 450px;
+    max-height: 510px;
     margin-left: 2.5rem;
     border-radius: 10px;
     border: 1px solid var(--yellow);
-    font-family: 'Distant Galaxy';
+    font-family: 'Distant Galaxy', 'Mandalore Title', 'Mandalore', sans-serif;
     letter-spacing: 2px;
 
     display: flex;
@@ -11,13 +12,18 @@
     justify-content: space-between;
     flex-direction: column;
 
-    input {
-        width: 40px;
-        padding: 0.5rem;
-        padding-right: .25rem;
-        margin-left: .5rem;
-        border-radius: 3px;
-        background-color: var(--bodyBackground)
+    .header {
+        width: 100%;
+        padding: 1.5rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        border-bottom: 1px solid var(--yellow);
+    }
+
+    fieldset, .buttons {
+        padding: 1.5rem;
     }
 
     .buttons {
@@ -27,19 +33,10 @@
         align-items: center;
         flex-direction: column;
         
-        button {
+        a {
             width: 100%;
             padding: .75rem 0;
-            text-align: center;
             font-weight: 600;
-            border-radius: 5px;
-            border: 1px solid var(--yellow);
-            transition: filter .2s;
-
-            &.filled {
-                background: var(--yellow);
-                color: var(--black);
-            }
 
             &:hover {
                 filter: brightness(.7);

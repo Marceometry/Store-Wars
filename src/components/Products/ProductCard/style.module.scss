@@ -1,6 +1,7 @@
 .card {
-    border-radius: 5px;
+    border-radius: 10px;
     background: var(--background);
+    overflow: hidden;
 
     display: flex;
     justify-content: space-between;

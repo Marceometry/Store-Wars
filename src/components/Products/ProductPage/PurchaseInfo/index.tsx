@@ -1,24 +1,43 @@
+import { LinkButton } from '../../../LinkButton'
+import { Quantity } from './Quantity'
 import style from './style.module.scss'
 
 type PurchaseProps = {
     price: number
-    id: string
+    // ids: string[]
+    isOnCart?: boolean
 }
 
-export function PurchaseInfo({ price, id }: PurchaseProps) {
+export function PurchaseInfo({ price, isOnCart }: PurchaseProps) {
     return (
         <div className={style.container}>
-            <h1>R${price.toLocaleString('pt-BR')}</h1>
+            <div className={style.header}>
+                {isOnCart ? <h1>Total:</h1> : ''}
 
-            <fieldset>
-                <label htmlFor="quantity">Quantidade:</label>
-                <input type="number" name="quantity"
-                    id="quantity" defaultValue={1} min={1} />
-            </fieldset>
+                <h1>R${price.toLocaleString('pt-BR')}</h1>
+            </div>
+
+            {!isOnCart ? (
+                <Quantity />
+            ) : ''}
 
             <div className={style.buttons}>
-                <button className={style.filled}>Comprar</button>
-                <button>Carrinho +</button>
+                <LinkButton
+                    href="/"
+                    bgColor="var(--yellow)"
+                    color="var(--black)"
+                >
+                    Comprar
+                </LinkButton>
+                {!isOnCart ? (
+                    <LinkButton
+                        href="/"
+                        bgColor="var(--yellow)"
+                        outlined
+                    >
+                        Carrinho +
+                    </LinkButton>
+                ): ''}
             </div>
         </div>
     )

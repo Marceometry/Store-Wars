@@ -67,15 +67,8 @@
             a {
                 width: fit-content;
                 margin-top: 2rem;
-                padding: .75rem 1.5rem;
-                
-                font-family: 'Distant Galaxy';
-                letter-spacing: 2px;
                 font-size: 1.25rem;
-
-                border-radius: 10px;
-                border: 1px solid var(--red);
-                transition: background .5s;
+                transition-duration: .5s;
 
                 &:hover {
                     background: var(--red);
@@ -98,12 +91,8 @@
                     color: var(--blue);
                 }
             
-                a {
-                    border: 1px solid var(--blue);
-
-                    &:hover {
-                        background: var(--blue);
-                    }
+                a:hover {
+                    background: var(--blue);
                 }
             }
         }

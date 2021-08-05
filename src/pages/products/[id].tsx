@@ -16,7 +16,7 @@ export default function ProductPage({ product }: ProductProps) {
     const { id, name, description, images, price } = product
     
     return (
-        <main className={style.container}>
+        <main className={`${style.container} container`}>
             <Head>
                 <title>{name} | Store Wars</title>
             </Head>
@@ -25,14 +25,14 @@ export default function ProductPage({ product }: ProductProps) {
                 <ImagesGrid images={images} productID={id} />
                 
                 <div className={style.productDescription}>
-                    <h1>{name.toLowerCase()}</h1>
+                    <h1>{name}</h1>
 
                     <h2>Por: R${price.toLocaleString('pt-BR')}</h2>
 
                     <p><strong>Descrição:</strong> {description}</p>
                 </div>
 
-                <PurchaseInfo price={price} id={id} />
+                <PurchaseInfo price={price} />
             </div>
         </main>
     )

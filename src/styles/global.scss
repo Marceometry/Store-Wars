@@ -14,15 +14,31 @@ body {
   height: 100vh;
 }
 
+.container {
+  width: 80%;
+  padding: 2rem;
+  margin: 5rem auto;
+  background: var(--background);
+  border-radius: 10px;
+}
+
 h1 {
-  font-family: "Mandalore Title", "Mandalore", sans-serif;
-  font-size: 3rem;
+  font-family: "Mandalore Title", "Mandalore", "Distant Galaxy", sans-serif;
+  text-transform: lowercase;
   letter-spacing: 0;
+  font-size: 3rem;
+}
+
+ul {
+  list-style: none;
 }
 
 button, a {
   all: unset;
   cursor: pointer;
+  
+  transition-property: background, border, filter;
+  transition-duration: .2s;
 }
 
 fieldset, input {
@@ -34,6 +50,7 @@ input::placeholder {
 }
 
 
+// scroll-bar //
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -47,7 +64,7 @@ input::placeholder {
   background: var(--primary);
 }
 
-
+// loading-bar //
 #nprogress {
   position: relative;
   z-index: 999;

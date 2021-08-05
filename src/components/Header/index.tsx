@@ -2,6 +2,7 @@ import { ShoppingCart } from '../../svg/ShoppingCart'
 import { ToggleThemeButton } from './ToggleThemeButton'
 import SearchInput from './SearchInput'
 import style from './style.module.scss'
+import Link from 'next/link'
 
 export function Header() {
     return (
@@ -15,7 +16,11 @@ export function Header() {
             <div>
                 <ToggleThemeButton />
 
-                <ShoppingCart />
+                <Link href="/cart">
+                <a>
+                    <ShoppingCart />
+                </a>
+                </Link>
             </div>
         </header>
     )
