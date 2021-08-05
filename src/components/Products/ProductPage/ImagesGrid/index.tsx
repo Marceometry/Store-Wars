@@ -20,7 +20,7 @@ export function ImagesGrid({ images, productID }: ImagesGridProps) {
             </aside>
 
             <div className={style.mainImage}>
-                <Image width={500} height={500} src={`/images/products/${productID}/${images[0]}`} alt="Imagem do ProProduto" />
+                <Image width={500} height={500} src={`/images/products/${productID}/${images[0]}`} alt="Imagem do Produto" />
             </div>
         </div>
     )
