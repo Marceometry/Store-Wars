@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import { ImagesGrid } from '../../components/ImagesGrid'
-import { NotFound } from '../../components/NotFound'
-import { PurchaseInfo } from '../../components/PurchaseInfo'
+import { ImagesGrid } from '../../components/Products/ProductPage/ImagesGrid'
+import { PurchaseInfo } from '../../components/Products/ProductPage/PurchaseInfo'
+import { NotFoundMessage } from '../../components/NotFoundMessage'
 import products, { Product } from '../../data/products'
 import style from '../../styles/productPage.module.scss'
 
@@ -11,7 +11,7 @@ type ProductProps = {
 }
 
 export default function ProductPage({ product }: ProductProps) {
-    if (!product) return <NotFound message="Produto não encontrado" />
+    if (!product) return <NotFoundMessage message="Produto não encontrado" />
 
     const { id, name, description, images, price } = product
     

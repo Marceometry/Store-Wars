@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import style from './style.module.scss'
 
-export function NotFound({ message }: { message: string }) {
+export function NotFoundMessage({ message }: { message: string }) {
     return (
         <div className={style.container}>
             <Head>

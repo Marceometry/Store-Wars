@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Banner } from '../components/Banner'
-import { ProductsSection } from '../components/ProductsSection'
+import { ProductsListRow } from '../components/Products/ProductsListRow'
 import products from '../data/products'
 
 export default function Home() {
@@ -12,13 +12,13 @@ export default function Home() {
 
       <Banner />
 
-      <ProductsSection
+      <ProductsListRow
         products={products}
         type="featured"
         title="Produtos em Destaque"
       />
       
-      <ProductsSection
+      <ProductsListRow
         products={products}
         type="sale"
         title="Em Promoção"

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react"
-import { Products } from "../../data/products"
-import { ArrowLeft, ArrowRight } from "../../svg/Arrows"
-import { ProductCard } from "./ProductCard"
+import { Products } from "../../../data/products"
+import { ArrowLeft, ArrowRight } from "../../../svg/Arrows"
+import { ProductCard } from "../ProductCard"
 import style from "./style.module.scss"
 
 type ProductsSectionProps = {
@@ -10,7 +10,7 @@ type ProductsSectionProps = {
     title: string
 }
 
-export function ProductsSection({ products, type, title }: ProductsSectionProps) {
+export function ProductsListRow({ products, type, title }: ProductsSectionProps) {
     const containerRef = useRef<HTMLDivElement>(null)
     const [scrollX, setScrollX] = useState(0)
     const [scrollRight, setScrollRight] = useState(true)
