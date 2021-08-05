@@ -4,18 +4,23 @@
     background: var(--bodyBackground);
     display: flex;
     align-items: center;
+    position: relative;
     
     input {
         flex: 1;
         height: 100%;
         padding: 1rem;
+        padding-right: 3.5rem;
 
         &:focus {
             outline: 1px solid var(--outline);
         }
     }
 
-    svg {
+    > svg, button {
+        font-size: 0;
         margin: 0 1rem;
+        position: absolute;
+        right: 0;
     }
 }
