@@ -26,7 +26,7 @@ export default function Cart() {
                     {products.map(product => (
                         <li key={product.name}>
                             <div className={style.img}>
-                                <Image width={192} height={192} alt={product.name}
+                                <Image width={176} height={176} alt={product.name}
                                     src={`/images/products/${product.name}/main.png`}
                                 />
                             </div>

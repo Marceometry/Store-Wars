@@ -4,6 +4,10 @@
         margin-bottom: 2rem;
     }
 
+    > div > div {
+        height: fit-content;
+    }
+
     .cart {
         width: 100%;
         display: flex;
