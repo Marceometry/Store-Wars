@@ -8,7 +8,11 @@ export function Header() {
     return (
         <header className={style.header}>
             <div>
-                <img src="/images/logo.png" alt="Store Wars" />
+                <Link href="/">
+                    <a>
+                        <img src="/images/logo.png" alt="Store Wars" />
+                    </a>
+                </Link>
 
                 <SearchInput />
             </div>
