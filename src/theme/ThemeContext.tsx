@@ -18,7 +18,7 @@ export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
     const [currentTheme, setCurrentTheme] = useState('dark' as Theme)
 
     useEffect(() => {
-        setCSSVariables(themes.primaryColors)
+        setCSSVariables(themes.colors)
         setCSSVariables(themes[currentTheme])
     }, [])
 

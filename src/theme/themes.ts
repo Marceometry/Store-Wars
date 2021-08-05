@@ -3,16 +3,20 @@ const colors = {
     blue: '#2E67F8',
     yellow: '#FFE81F',
     white: '#FFFFFF',
-    grayLight: '#EEEEEE',
+    grayLight: '#E5E5E5',
     grayDark: '#373737',
     black: '#111111',
 }
 
 export const themes = {
-    primaryColors: {
+    colors: {
         red: colors.red,
         blue: colors.blue,
         yellow: colors.yellow,
+        white: colors.white,
+        grayLight: colors.grayLight,
+        grayDark: colors.grayDark,
+        black: colors.black,
     },
     light: {
         bodyBackground: colors.grayLight,
