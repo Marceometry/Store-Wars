@@ -10,11 +10,7 @@ type ProductProps = {
 }
 
 export default function ProductPage({ product }: ProductProps) {
-    if (!product) {
-        return (
-            <NotFound message="Produto não encontrado"/>
-        )
-    }
+    if (!product) return <NotFound message="Produto não encontrado" />
 
     const { id, name, description, images, price } = product
     
