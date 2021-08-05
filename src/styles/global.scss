@@ -39,6 +39,10 @@ button, a {
   
   transition-property: background, border, filter;
   transition-duration: .2s;
+
+  &:focus {
+    outline: 1px solid var(--yellow);
+  }
 }
 
 fieldset, input {
