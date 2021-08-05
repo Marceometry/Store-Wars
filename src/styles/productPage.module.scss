@@ -16,55 +16,9 @@
         h2 {
             margin: 2rem 0 3rem;
         }
-    }
 
-    .purchaseInfo {
-        padding: 1.5rem 2rem;
-        margin-left: 2.5rem;
-        border-radius: 10px;
-        border: 1px solid var(--yellow);
-        font-family: 'Distant Galaxy';
-        letter-spacing: 2px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: column;
-
-        input {
-            width: 40px;
-            padding: 0.5rem;
-            padding-right: .25rem;
-            margin-left: .5rem;
-            border-radius: 3px;
-            background-color: var(--bodyBackground)
-        }
-
-        .buttons {
-            width: 100%;
-            gap: 1rem;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            
-            button {
-                width: 100%;
-                padding: .75rem 0;
-                text-align: center;
-                font-weight: 600;
-                border-radius: 5px;
-                border: 1px solid var(--yellow);
-                transition: filter .2s;
-
-                &.filled {
-                    background: var(--yellow);
-                    color: var(--background);
-                }
-
-                &:hover {
-                    filter: brightness(.7);
-                }
-            }
+        p {
+            text-align: justify;
         }
     }
 }

@@ -10,7 +10,7 @@ type ProductCardProps = {
 
 export function ProductCard({ width, product }: ProductCardProps) {
     return (
-        <Link href="/">
+        <Link href={`/products/${product.id}`}>
         <a className={style.card} style={{ width }}>
             <Image width={width} height={width} src={`/images/products/${product.id}/${product.images[0]}`} alt="Produto" />
 

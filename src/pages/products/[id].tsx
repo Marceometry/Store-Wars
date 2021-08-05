@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import { ImagesGrid } from '../../components/ImagesGrid'
 import { NotFound } from '../../components/NotFound'
+import { PurchaseInfo } from '../../components/PurchaseInfo'
 import products, { Product } from '../../data/products'
 import style from '../../styles/productPage.module.scss'
 
@@ -24,27 +25,14 @@ export default function ProductPage({ product }: ProductProps) {
                 <ImagesGrid images={images} productID={id} />
                 
                 <div className={style.productDescription}>
-                    <h1>{name}</h1>
+                    <h1>{name.toLowerCase()}</h1>
 
                     <h2>Por: R${price.toLocaleString('pt-BR')}</h2>
 
                     <p><strong>Descrição:</strong> {description}</p>
                 </div>
 
-                <aside className={style.purchaseInfo}>
-                    <h1>R${price.toLocaleString('pt-BR')}</h1>
-
-                    <fieldset>
-                        <label htmlFor="quantity">Quantidade:</label>
-                        <input type="number" name="quantity"
-                        id="quantity" defaultValue={1} min={1} />
-                    </fieldset>
-
-                    <div className={style.buttons}>
-                        <button className={style.filled}>Comprar</button>
-                        <button>Carrinho +</button>
-                    </div>
-                </aside>
+                <PurchaseInfo price={price} id={id} />
             </div>
         </main>
     )
