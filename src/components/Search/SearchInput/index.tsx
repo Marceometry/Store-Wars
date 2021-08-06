@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { useSearch } from "../../../contexts/SearchContext"
 import { Close } from "../../../svg/Close"
 import { Search } from "../../../svg/Search"
