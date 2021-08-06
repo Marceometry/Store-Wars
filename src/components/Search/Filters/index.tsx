@@ -1,14 +1,10 @@
+// import { useSearch } from '../../../contexts/SearchContext'
+import { categories } from '../../../data/products'
 import style from './style.module.scss'
 
-const categories = [
-    { name: "Jedi" },
-    { name: "Sith" },
-    { name: "Legos" },
-    { name: "Brinquedos" },
-    { name: "Camisas" },
-]
-
 export function Filters() {
+    // const { categoriesList } = useSearch()
+
     return (
         <aside className={style.container}>
             <h1>Filtros:</h1>

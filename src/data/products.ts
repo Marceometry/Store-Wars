@@ -1,9 +1,25 @@
+type Category = {
+    name: string
+    isChecked: boolean
+}
+
+export type Categories = Category[]
+
+export const categories = [
+    { name: "Jedi", isChecked: false },
+    { name: "Sith", isChecked: false },
+    { name: "Lego", isChecked: false },
+    { name: "Brinquedos", isChecked: false },
+    { name: "Camisas", isChecked: false },
+]
+
 export type Product = {
-    id: string,
+    id: string
     images: string[]
-    name: string,
-    description: string,
-    price: number,
+    name: string
+    description: string
+    price: number
+    tags: string[]
 }
 
 export type Products = Product[]
@@ -16,7 +32,9 @@ const products = [
         ],
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
-        price: 1499
+        price: 1499,
+        tags: ["lego", "atat", "at-at", "luke", "skywalker"],
+        categories: ["Lego"]
     },
     {
         id: "camisa-yoda",
@@ -25,7 +43,9 @@ const products = [
         ],
         name: "Camisa Mestre Yoda",
         description: "Branca, tamanho M",
-        price: 49.99
+        price: 49.99,
+        tags: ["camisa", "camiseta", "mestre", "yoda", "jedi"],
+        categories: ["Camisas", "Jedi"]
     },
     {
         id: "atat-walker",
@@ -34,7 +54,9 @@ const products = [
         ],
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
-        price: 1499
+        price: 1499,
+        tags: ["lego"],
+        categories: ["Lego"]
     },
     {
         id: "atat-walker",
@@ -43,7 +65,9 @@ const products = [
         ],
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
-        price: 1499
+        price: 1499,
+        tags: ["lego"],
+        categories: ["Lego"]
     },
     {
         id: "atat-walker",
@@ -52,7 +76,9 @@ const products = [
         ],
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
-        price: 1499
+        price: 1499,
+        tags: ["lego"],
+        categories: ["Lego"]
     },
     {
         id: "atat-walker",
@@ -61,7 +87,9 @@ const products = [
         ],
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
-        price: 1499
+        price: 1499,
+        tags: ["lego"],
+        categories: ["Lego"]
     },
     {
         id: "atat-walker",
@@ -70,7 +98,9 @@ const products = [
         ],
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
-        price: 1499
+        price: 1499,
+        tags: ["lego"],
+        categories: ["Lego"]
     },
     {
         id: "atat-walker",
@@ -79,7 +109,9 @@ const products = [
         ],
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
-        price: 1499
+        price: 1499,
+        tags: ["lego"],
+        categories: ["Lego"]
     },
     {
         id: "atat-walker",
@@ -88,7 +120,9 @@ const products = [
         ],
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
-        price: 1499
+        price: 1499,
+        tags: ["lego"],
+        categories: ["Lego"]
     },
     {
         id: "atat-walker",
@@ -97,7 +131,9 @@ const products = [
         ],
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
-        price: 1499
+        price: 1499,
+        tags: ["lego"],
+        categories: ["Lego"]
     },
 ]
 

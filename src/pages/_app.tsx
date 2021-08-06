@@ -9,6 +9,7 @@ import 'nprogress/nprogress.css'
 
 import '../styles/global.scss'
 import '../styles/fonts.scss'
+import { SearchContextProvider } from '../contexts/SearchContext'
 
 Nprogress.configure({
   showSpinner: false,
@@ -30,9 +31,11 @@ Router.events.on('routeChangeError', () => {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeContextProvider>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <SearchContextProvider>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </SearchContextProvider>
     </ThemeContextProvider>
   )
 }
