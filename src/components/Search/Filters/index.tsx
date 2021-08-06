@@ -17,7 +17,7 @@ export function Filters() {
                 <h1>Categorias</h1>
 
                 {categories.map(category => (
-                    <fieldset>
+                    <fieldset key={category.name}>
                         <input
                             name={category.name}
                             type="checkbox"
