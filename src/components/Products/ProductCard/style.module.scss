@@ -1,19 +1,15 @@
 .card {
     border-radius: 10px;
-    background: var(--background);
+    border: 1px solid var(--bodyBackground);
     overflow: hidden;
+    justify-self: center;
 
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 
-    transform: scale(.9);
     transition: all .2s;
     cursor: pointer;
-
-    &:hover {
-        transform: scale(.95);
-    }
 
     img {
         object-fit: contain;

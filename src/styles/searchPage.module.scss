@@ -1,0 +1,13 @@
+.container {
+    width: 90%;
+    display: flex;
+
+    .products {
+        padding: 1rem 2rem;
+        text-align: center;
+        flex: 1;
+        gap: 2rem 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+    }
+}

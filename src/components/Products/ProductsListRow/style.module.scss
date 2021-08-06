@@ -41,6 +41,14 @@
         .list {
             display: flex;
             transition: margin, .5s;
+
+            > a {
+                transform: scale(.9);
+
+                &:hover {
+                    transform: scale(.95);
+                }
+            }
         }
     }
 }
