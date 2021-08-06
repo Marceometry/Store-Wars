@@ -1,6 +1,6 @@
 import { ShoppingCart } from '../../svg/ShoppingCart'
 import { ToggleThemeButton } from './ToggleThemeButton'
-import SearchInput from './SearchInput'
+import SearchInput from '../Search/SearchInput'
 import style from './style.module.scss'
 import Link from 'next/link'
 
