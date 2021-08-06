@@ -14,7 +14,9 @@ export default function Search() {
             <Filters />
 
             <div className={style.products}>
-                Pesquise algo
+                {products.map((product, index) => (
+                    <ProductCard key={`${product.id}${index}`} bg="var(--bodyBackground)" width={256} product={product} />
+                ))}
             </div>
         </main>
     )
