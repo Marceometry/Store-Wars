@@ -5,7 +5,7 @@ import { useSearch } from "../../contexts/SearchContext"
 import style from "../../styles/searchPage.module.scss"
 
 export default function Search() {
-    const { filteredProducts, isLoading, searchText } = useSearch()
+    const { productsResult, isLoading, searchText } = useSearch()
     
     return (
         <main className={`${style.container} container`}>
@@ -19,7 +19,7 @@ export default function Search() {
                 {isLoading ? (
                     <h1>Carregando...</h1>
                 ) : (
-                    filteredProducts.map((product, index) => (
+                    productsResult.map((product, index) => (
                         <ProductCard
                             key={`${product.id}${index}`}
                             bg="var(--bodyBackground)"

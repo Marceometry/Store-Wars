@@ -1,9 +1,27 @@
-// import { useSearch } from '../../../contexts/SearchContext'
+import { useSearch } from '../../../contexts/SearchContext'
 import { categories } from '../../../data/products'
+import { Checkbox } from './Checkbox'
 import style from './style.module.scss'
 
 export function Filters() {
-    // const { categoriesList } = useSearch()
+    const { filterByCategory, selectedCategories, setSelectedCategories } = useSearch()
+    
+    function handleSelectedCategories(category: string, isChecked: boolean) {        
+        if (isChecked) {
+            selectedCategories.push(category) 
+        } else {
+            selectedCategories.forEach((categoryInArray, index) => {
+                if (categoryInArray === category) {
+                    selectedCategories.splice(index, 1)
+                }
+            })
+        }
+        filterByCategory(selectedCategories)
+    }
+
+    function verifyIsChecked(category: string) {
+        return selectedCategories.includes(category)
+    }
 
     return (
         <aside className={style.container}>
@@ -13,17 +31,12 @@ export function Filters() {
                 <h1>Categorias</h1>
 
                 {categories.map(category => (
-                    <fieldset key={category.name}>
-                        <input
-                            name={category.name}
-                            type="checkbox"
-                            // checked={isChecked}
-                            // onChange={e => handleChange(e.target.checked)}
-                        />
-                        <label htmlFor={category.name}>
-                            {category.name}
-                        </label>
-                    </fieldset>
+                    <Checkbox
+                        key={category}
+                        verifyIsChecked={verifyIsChecked}
+                        category={category}
+                        handleSelectedCategories={handleSelectedCategories}
+                    />
                 ))}
             </div>
         </aside>

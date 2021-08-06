@@ -1,18 +1,3 @@
-type Category = {
-    name: string
-    isChecked: boolean
-}
-
-export type Categories = Category[]
-
-export const categories = [
-    { name: "Jedi", isChecked: false },
-    { name: "Sith", isChecked: false },
-    { name: "Lego", isChecked: false },
-    { name: "Brinquedos", isChecked: false },
-    { name: "Camisas", isChecked: false },
-]
-
 export type Product = {
     id: string
     images: string[]
@@ -20,9 +5,12 @@ export type Product = {
     description: string
     price: number
     tags: string[]
+    categories: string[]
 }
 
 export type Products = Product[]
+
+export const categories = [ "Jedi", "Sith", "Lego", "Brinquedos", "Camisas" ]
 
 const products = [
     {
