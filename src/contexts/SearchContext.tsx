@@ -1,6 +1,6 @@
 import { useState, createContext, useContext, ReactNode, useCallback } from "react"
 import { debounce } from "lodash"
-import products, { Products } from "../data/products"
+import products, { Product, Products } from "../data/products"
 
 type SearchContextProviderProps = {
     children: ReactNode
@@ -37,11 +37,13 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
     function searchProducts(value: string) {
         if (!value) {
             setProductsResult(products)
+            selectedCategories.length > 0 && filterByCategory(selectedCategories)
             return
         }
 
         const result = filterProducts(value)
         setProductsResult(result)
+        selectedCategories.length > 0 && filterByCategory(selectedCategories)
     }
 
     function filterProducts(value: string) {
@@ -71,21 +73,33 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
             return
         }
 
-        const result = productsResult.filter(product => {
-            const hasCategory = product.categories.find(category => {
-                let includes = true
-                for (const index in categories) {
-                    category !== categories[index] && (
-                        includes = false
-                    )
-                }
-                console.log(includes)
-                return includes
-            })
-            return hasCategory
+        const products = filterProducts(searchText)
+
+        const result = products.filter(product => {
+            return compareCategories(categories, product)
         })
 
         setProductsResult(result)
+    }
+
+    function compareCategories(categories: string[], product: Product) {
+        const comparisonResult = categories.map(category => {
+            const hasCategory = product.categories.find(productCategory => {
+                return category === productCategory
+            })
+            
+            if (hasCategory) {
+                return true
+            } else {
+                return false
+            }
+        })
+        
+        const productMatches = comparisonResult.find(result => {
+            return result === true
+        })
+
+        return productMatches
     }
 
     return (
