@@ -12,6 +12,8 @@ export type Products = Product[]
 
 export const categories = [ "Jedi", "Sith", "Lego", "Brinquedos", "Roupas", "Decoração", "Outros" ]
 
+export const prices = [ 25, 50, 100, 200, 500, 1000, 2000 ]
+
 const products = [
     {
         id: "atat-walker",
