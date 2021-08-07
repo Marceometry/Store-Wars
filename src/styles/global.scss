@@ -33,6 +33,10 @@ ul {
   list-style: none;
 }
 
+img {
+  object-fit: cover;
+}
+
 button, a {
   all: unset;
   cursor: pointer;
