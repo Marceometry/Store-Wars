@@ -1,4 +1,4 @@
-import { LinkButton } from '../../../LinkButton'
+import { StyledButton } from '../../../LinkButton'
 import { Quantity } from './Quantity'
 import style from './style.module.scss'
 
@@ -22,21 +22,21 @@ export function PurchaseInfo({ price, isOnCart }: PurchaseProps) {
             ) : ''}
 
             <div className={style.buttons}>
-                <LinkButton
+                <StyledButton
                     href="/"
                     bgColor="var(--yellow)"
                     color="var(--black)"
                 >
                     Comprar
-                </LinkButton>
+                </StyledButton>
                 {!isOnCart ? (
-                    <LinkButton
+                    <StyledButton
                         href="/"
                         bgColor="var(--yellow)"
                         outlined
                     >
                         Carrinho +
-                    </LinkButton>
+                    </StyledButton>
                 ): ''}
             </div>
         </div>

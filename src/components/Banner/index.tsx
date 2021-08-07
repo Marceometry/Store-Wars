@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { useSearch } from '../../contexts/SearchContext'
-import { LinkButton } from '../LinkButton'
+import { StyledLink } from '../LinkButton'
 import style from './style.module.scss'
 
 export function Banner() {
@@ -24,7 +24,7 @@ export function Banner() {
                     <h1>Dark Side</h1>
                     <p>Sinta o poder do Lado Sombrio com nossos produtos Sith.</p>
 
-                    <LinkButton
+                    <StyledLink
                         href="/search"
                         bgColor="var(--red)"
                         outlined
@@ -35,7 +35,7 @@ export function Banner() {
                         }}
                     >
                         Ver Produtos
-                    </LinkButton>
+                    </StyledLink>
                 </div>
             </section>
 
@@ -46,7 +46,7 @@ export function Banner() {
                     <h1>Light Side</h1>
                     <p>Livre a sua mente da fúria, jovem padawan, e se torne um Jedi.</p>
 
-                    <LinkButton
+                    <StyledLink
                         href="/search"
                         bgColor="var(--blue)"
                         outlined
@@ -57,7 +57,7 @@ export function Banner() {
                         }}
                     >
                         Ver Produtos
-                    </LinkButton>
+                    </StyledLink>
                 </div>
             </section>
         </div>

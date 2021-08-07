@@ -1,17 +1,17 @@
-import Link from "next/link"
 import { ReactNode } from "react"
+import Link from "next/link"
 import style from './style.module.scss'
 
 type LinkButtonProps = {
-    href: string
+    href?: string
     color?: string
     bgColor: string
     outlined?: boolean
-    onClick?: () => void
     children: ReactNode
+    onClick?: () => void
 }
 
-export function LinkButton({
+export function StyledLink({
     href,
     color,
     bgColor,
@@ -20,7 +20,7 @@ export function LinkButton({
     children,
 }: LinkButtonProps) {
     return (
-        <Link href={href}>
+        <Link href={href ?? ''}>
         <a className={style.linkButton} onClick={onClick} style={{
             color: color,
             border: '1px solid ' + bgColor,
@@ -29,5 +29,23 @@ export function LinkButton({
             {children}
         </a>
         </Link>
+    )
+}
+
+export function StyledButton({
+    color,
+    bgColor,
+    outlined,
+    onClick,
+    children,
+}: LinkButtonProps) {
+    return (
+        <button className={style.linkButton} onClick={onClick} style={{
+            color: color,
+            border: '1px solid ' + bgColor,
+            background: !outlined ? bgColor : ''
+        }}>
+            {children}
+        </button>
     )
 }
