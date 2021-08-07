@@ -1,9 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSearch } from '../../contexts/SearchContext'
 import { LinkButton } from '../LinkButton'
 import style from './style.module.scss'
 
 export function Banner() {
+    const { filterByCategory } = useSearch()
+
     return (
         <div className={style.banner}>
             <div className={style.bg}>
@@ -23,7 +26,8 @@ export function Banner() {
                     <p>Sinta o poder do Lado Sombrio com nossos produtos Sith.</p>
 
                     <LinkButton
-                        href="/"
+                        onClick={() => filterByCategory(["Sith"])}
+                        href="/search"
                         bgColor="var(--red)"
                         outlined
                     >
@@ -40,7 +44,8 @@ export function Banner() {
                     <p>Livre a sua mente da fúria, jovem padawan, e se torne um Jedi.</p>
 
                     <LinkButton
-                        href="/"
+                        onClick={() => filterByCategory(["Jedi"])}
+                        href="/search"
                         bgColor="var(--blue)"
                         outlined
                     >

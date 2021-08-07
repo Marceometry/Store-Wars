@@ -7,6 +7,7 @@ type LinkButtonProps = {
     color?: string
     bgColor: string
     outlined?: boolean
+    onClick?: () => void
     children: ReactNode
 }
 
@@ -15,11 +16,12 @@ export function LinkButton({
     color,
     bgColor,
     outlined,
+    onClick,
     children,
 }: LinkButtonProps) {
     return (
         <Link href={href}>
-        <a className={style.linkButton} style={{
+        <a className={style.linkButton} onClick={onClick} style={{
             color: color,
             border: '1px solid ' + bgColor,
             background: !outlined ? bgColor : ''
