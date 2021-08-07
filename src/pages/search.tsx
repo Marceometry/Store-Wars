@@ -1,7 +1,7 @@
 import Head from "next/head"
-import { ProductCard } from "../../components/Products/ProductCard"
-import { Filters } from "../../components/Search/Filters"
-import { useSearch } from "../../contexts/SearchContext"
+import { ProductCard } from "../components/Products/ProductCard"
+import { Filters } from "../components/Search/Filters"
+import { useSearch } from "../contexts/SearchContext"
 import style from "../../styles/searchPage.module.scss"
 
 export default function Search() {
