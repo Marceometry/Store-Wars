@@ -1,18 +1,22 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import { PurchaseInfo } from '../components/Products/ProductPage/PurchaseInfo'
 import { Quantity } from '../components/Products/ProductPage/PurchaseInfo/Quantity'
+import products from '../data/products'
 import style from '../styles/cartPage.module.scss'
 
-const products = [
-    { name: "atat-walker" },
-    { name: "camisa yoda" },
-    { name: "sabre de luz - kylo ren" },
-    { name: "luminária - estrela da morte" },
-    { name: "quadro - darth vader" },
-]
-
 export default function Cart() {
+    const [totalPrice, setTotalPrice] = useState(0)
+    
+    useEffect(() => {
+        const totalPrice = products.reduce((total, product) => {
+            total += product.price
+            return total
+        }, 0)
+        setTotalPrice(totalPrice)
+    }, [products])
+
     return (
         <main className={`${style.container} container`}>
             <Head>
@@ -26,21 +30,21 @@ export default function Cart() {
                     {products.map(product => (
                         <li key={product.name}>
                             <div className={style.img}>
-                                <Image width={176} height={176} alt={product.name}
-                                    src={`/images/products/${product.name}/main.png`}
+                                <Image width={160} height={160} alt={product.name}
+                                    src={`/images/products/${product.id}/${product.images[0]}`}
                                 />
                             </div>
                             <div className={style.productInfo}>
                                 <div>
                                     <h1>{product.name}</h1>
 
-                                    <p>40cm de altura, acompanha Luke Skywalker!</p>
+                                    <p>{product.description}</p>
                                 </div>
 
                                 <Quantity />
                             </div>
                             <div className={style.alignRight}>
-                                <h2>R$1.499,00</h2>
+                                <h2>R${product.price.toLocaleString('pt-BR')}</h2>
 
                                 <div className={style.buttons}>
                                     <button className={style.removeAll}>Remover Todos</button>
@@ -51,7 +55,7 @@ export default function Cart() {
                     ))}
                 </ul>
 
-                <PurchaseInfo price={2000} isOnCart />
+                <PurchaseInfo price={totalPrice} isOnCart />
             </div>
         </main>
     )
