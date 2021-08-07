@@ -1,5 +1,5 @@
 import { DarkSide } from '../../../svg/DarkSide'
-import { useTheme } from '../../../theme/ThemeContext'
+import { useTheme } from '../../../contexts/ThemeContext'
 import { LightSide } from '../../../svg/LightSide'
 import style from './style.module.scss'
 

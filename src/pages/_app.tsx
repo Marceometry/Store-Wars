@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import { ThemeContextProvider } from '../theme/ThemeContext'
+import { ThemeContextProvider } from '../contexts/ThemeContext'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
