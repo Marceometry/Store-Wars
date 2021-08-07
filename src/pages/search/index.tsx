@@ -15,19 +15,19 @@ export default function Search() {
 
             <Filters />
 
-            <div className={style.products}>
-                {isLoading ? (
-                    <h1>Carregando...</h1>
-                ) : (
-                    productsResult.map((product, index) => (
+            {isLoading ? (
+                <h1 style={{width: 'fit-content', margin: 'auto'}}>Carregando...</h1>
+            ) : (
+                <div className={style.products}>
+                    {productsResult.map((product, index) => (
                         <ProductCard
                             key={`${product.id}${index}`}
                             bg="var(--bodyBackground)"
                             width={256} product={product}
                         />
-                    ))
-                )}
-            </div>
+                    ))}
+                </div>
+            )}
         </main>
     )
 }
