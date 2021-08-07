@@ -18,11 +18,11 @@ export default function Home() {
         title="Produtos em Destaque"
       />
       
-      <ProductsListRow
+      {/* <ProductsListRow
         products={products}
         type="sale"
         title="Em Promoção"
-      />
+      /> */}
     </main>
   )
 }
