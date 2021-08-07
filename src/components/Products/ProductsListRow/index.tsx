@@ -27,7 +27,7 @@ export function ProductsListRow({ products, type, title }: ProductsSectionProps)
         }
 
         if ((containerWidth - listWidth) > x) {
-            x = (containerWidth - listWidth) - 180
+            x = (containerWidth - listWidth) - 200
             setScrollRight(false)
         } else { setScrollRight(true) }
 
@@ -47,10 +47,6 @@ export function ProductsListRow({ products, type, title }: ProductsSectionProps)
                     <ArrowLeft />
                 </button>
 
-                <button className={style.right} onClick={() => handleScroll('right')} disabled={!scrollRight}>
-                    <ArrowRight />
-                </button>
-
                 <div className={style.list} style={{
                     width: 10 * 300,
                     marginLeft: scrollX
@@ -59,6 +55,10 @@ export function ProductsListRow({ products, type, title }: ProductsSectionProps)
                         <ProductCard key={product.id + index} bg="var(--background)" width={250} product={product} />
                     ))}
                 </div>
+
+                <button className={style.right} onClick={() => handleScroll('right')} disabled={!scrollRight}>
+                    <ArrowRight />
+                </button>
             </div>
         </section>
     )
