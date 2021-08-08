@@ -10,7 +10,7 @@ export type Product = {
 
 export type Products = Product[]
 
-export const categories = [ "Jedi", "Sith", "Lego", "Brinquedos", "Roupas", "Decoração", "Outros" ]
+export const categories = [ "Jedi", "Sith", "Lego", "Livros", "Brinquedos", "Roupas", "Decoração" ]
 
 export const prices = [ 25, 50, 100, 200, 500, 1000, 2000 ]
 
@@ -21,14 +21,14 @@ const products = [
         name: "Lego ATAT Walker",
         description: "40cm de altura, acompanha Luke Skywalker!",
         price: 1499,
-        tags: ["lego", "atat", "at-at", "luke", "skywalker"],
-        categories: ["Lego"]
+        tags: ["lego", "atat", "at-at", "hoth", "luke", "skywalker"],
+        categories: ["Lego", "Jedi"]
     },
     {
         id: "camisa-yoda",
         images: ["main.jpg"],
-        name: "Camisa Mestre Yoda",
-        description: "Branca, tamanho M",
+        name: "Camiseta Mestre Yoda",
+        description: "Camiseta branca, tamanho M",
         price: 49.99,
         tags: ["camisa", "camiseta", "roupa", "mestre", "yoda", "jedi"],
         categories: ["Roupas", "Jedi"]
@@ -61,10 +61,10 @@ const products = [
         categories: ["Decoração", "Sith"]
     },
     {
-        id: "camisa-stormtroopers",
+        id: "camiseta-stormtroopers",
         images: ["main.jpg"],
-        name: "Camisa Stormtroopers",
-        description: "Camisa branca, tamanho M",
+        name: "Camiseta Stormtroopers",
+        description: "Camiseta branca, tamanho M",
         price: 55.49,
         tags: ["camisa", "camiseta", "roupa", "storm", "trooper"],
         categories: ["Roupas"]
@@ -77,6 +77,51 @@ const products = [
         price: 279.90,
         tags: ["lego", "anakin", "skywalker", "padme"],
         categories: ["Lego"]
+    },
+    {
+        id: "livro-dos-sith",
+        images: ["main.jpg"],
+        name: "Livro dos Sith",
+        description: "Compilado de livros Sith antigos",
+        price: 34.99,
+        tags: ["livro", "sith", "capa dura"],
+        categories: ["Livros", "Sith"]
+    },
+    {
+        id: "roupao-preto",
+        images: ["main.jpeg"],
+        name: "Roupão Preto",
+        description: "Roupão preto com capacetes de star wars",
+        price: 94.99,
+        tags: ["roupao", "banho"],
+        categories: ["Roupas"]
+    },
+    {
+        id: "wampa-cave",
+        images: ["main.jpeg"],
+        name: "Lego Wampa Cave",
+        description: "Caverna do Wampa, com Luke e uma nave T-47",
+        price: 314.49,
+        tags: ["lego", "luke", "wampa", "caverna", "nave", "hoth"],
+        categories: ["Lego", "Jedi"]
+    },
+    {
+        id: "flametrooper-first-order",
+        images: ["main.jpeg"],
+        name: "Flametrooper - Primeira Ordem",
+        description: "Boneco Flametrooper da Primeira Ordem",
+        price: 279,
+        tags: ["boneco", "flame", "trooper", "primeira ordem"],
+        categories: ["Brinquedos"]
+    },
+    {
+        id: "manual-do-imperio",
+        images: ["main.jpeg"],
+        name: "Manual do Império",
+        description: "Manual do Império com comentários dos mais queridos personagens da rebelião.",
+        price: 44.49,
+        tags: ["livro", "manual", "imperio"],
+        categories: ["Livros"]
     }
 ]
 
