@@ -18,9 +18,15 @@ export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
     const [currentTheme, setCurrentTheme] = useState('dark' as Theme)
 
     useEffect(() => {
+        const theme = localStorage.getItem('theme') as Theme ?? currentTheme
+        setCurrentTheme(theme)
         setCSSVariables(themes.colors)
-        setCSSVariables(themes[currentTheme])
+        setCSSVariables(themes[theme])
     }, [])
+
+    useEffect(() => {
+        localStorage.setItem('theme', currentTheme)
+    }, [currentTheme])
 
     function toggleTheme() {
         setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light')
