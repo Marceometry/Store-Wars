@@ -25,7 +25,7 @@ const products = [
         categories: ["Lego", "Jedi"]
     },
     {
-        id: "camisa-yoda",
+        id: "camiseta-yoda",
         images: ["main.jpg"],
         name: "Camiseta Mestre Yoda",
         description: "Camiseta branca, tamanho M",
