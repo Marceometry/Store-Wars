@@ -25,13 +25,14 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-<!-- <h4> Acesse em: https://store-wars.vercel.app </h4> -->
+<h4> Acesse em: https://store-wars.vercel.app </h4>
 
 Este projeto FrontEnd é a idealização de uma loja virtual temática de Star Wars.
 
-<!-- ## 💣 Funcionalidades
+## 💣 Funcionalidades
 
--  -->
+- Pesquisa de texto para encontrar produtos
+- Filtragem da pesquisa por categorias de produtos
 
 ## 🚀 Como executar
 
