@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, ReactNode, useCallback } from "react"
+import { useState, createContext, useContext, ReactNode, useCallback, useEffect } from "react"
 import { debounce } from "lodash"
 import products, { Product, Products } from "../data/products"
 
@@ -12,19 +12,22 @@ type SearchContextType = {
     isLoading: boolean
     setIsLoading: (value: boolean) => void
     productsResult: Products
-    debouncedSearch: (value: string) => void
-    filterByCategory: (categories: string[]) => void
+    filterByCategory: (categories: string[], searchValue: string) => void
     selectedCategories: string[]
-    setSelectedCategories: (categories: string[]) => void
 }
 
 export const SearchContext = createContext({} as SearchContextType)
 
 export function SearchContextProvider({ children }: SearchContextProviderProps) {
     const [productsResult, setProductsResult] = useState(products)
-    const [selectedCategories, setSelectedCategories] = useState([] as string[])
+    const [selectedCategories] = useState([] as string[])
     const [searchText, setSearchText] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+
+    useEffect(() => {
+        setIsLoading(true)
+        debouncedSearch(searchText)
+    }, [searchText])
     
     const debouncedSearch = useCallback(
         debounce(value => {
@@ -37,13 +40,13 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
     function searchProducts(value: string) {
         if (!value) {
             setProductsResult(products)
-            selectedCategories.length > 0 && filterByCategory(selectedCategories)
+            selectedCategories.length > 0 && filterByCategory(selectedCategories, value)
             return
         }
 
         const result = filterProducts(value)
         setProductsResult(result)
-        selectedCategories.length > 0 && filterByCategory(selectedCategories)
+        selectedCategories.length > 0 && filterByCategory(selectedCategories, value)
     }
 
     function filterProducts(value: string) {
@@ -67,15 +70,15 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
         return result
     }
 
-    function filterByCategory(categories: string[]) {
+    function filterByCategory(categories: string[], searchValue: string) {
         if (categories.length === 0) {
             searchProducts(searchText)
             return
         }
 
-        const products = filterProducts(searchText)
+        const filteredProducts = filterProducts(searchValue)
 
-        const result = products.filter(product => {
+        const result = filteredProducts.filter(product => {
             return compareCategories(categories, product)
         })
 
@@ -109,10 +112,8 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
             searchText,
             setSearchText,
             productsResult,
-            debouncedSearch,
             filterByCategory,
-            selectedCategories,
-            setSelectedCategories
+            selectedCategories
         }}>
             {children}
         </SearchContext.Provider>

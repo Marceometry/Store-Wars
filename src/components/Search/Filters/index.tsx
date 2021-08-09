@@ -4,7 +4,7 @@ import { Checkbox } from './Checkbox'
 import style from './style.module.scss'
 
 export function Filters() {
-    const { filterByCategory, selectedCategories, setSelectedCategories } = useSearch()
+    const { filterByCategory, selectedCategories, searchText } = useSearch()
     
     function handleSelectedCategories(category: string, isChecked: boolean) {        
         if (isChecked) {
@@ -16,7 +16,7 @@ export function Filters() {
                 }
             })
         }
-        filterByCategory(selectedCategories)
+        filterByCategory(selectedCategories, searchText)
     }
 
     function verifyIsChecked(category: string) {

@@ -7,17 +7,12 @@ import styles from "./style.module.scss"
 
 export default function SearchInput() {
   const inputRef = useRef<HTMLInputElement>(null)
-  const { debouncedSearch, setIsLoading, searchText, setSearchText } = useSearch()
+  const { searchText, setSearchText } = useSearch()
   const { pathname, push } = useRouter()
 
   useEffect(() => {
     inputRef.current && inputRef.current.focus()
   }, [])
-
-  useEffect(() => {
-    setIsLoading(true)
-    debouncedSearch(searchText)
-  }, [searchText])
 
   useEffect(() => {
     if (pathname !== '/search' && inputRef.current) {
