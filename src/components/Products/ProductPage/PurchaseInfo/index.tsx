@@ -23,7 +23,6 @@ export function PurchaseInfo({ price, isOnCart }: PurchaseProps) {
 
             <div className={style.buttons}>
                 <StyledButton
-                    href="/"
                     bgColor="var(--yellow)"
                     color="var(--black)"
                 >
@@ -31,7 +30,6 @@ export function PurchaseInfo({ price, isOnCart }: PurchaseProps) {
                 </StyledButton>
                 {!isOnCart ? (
                     <StyledButton
-                        href="/"
                         bgColor="var(--yellow)"
                         outlined
                     >
