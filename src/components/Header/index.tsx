@@ -3,6 +3,7 @@ import { ToggleThemeButton } from './ToggleThemeButton'
 import SearchInput from '../Search/SearchInput'
 import style from './style.module.scss'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function Header() {
     return (
@@ -10,7 +11,7 @@ export function Header() {
             <div>
                 <Link href="/">
                     <a>
-                        <img src="/images/logo.png" alt="Store Wars" />
+                        <Image width={172} height={80} src="/images/logo.png" alt="Store Wars" />
                     </a>
                 </Link>
 
