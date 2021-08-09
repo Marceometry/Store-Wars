@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { StyledButton } from '../components/LinkButton'
 import { PurchaseInfo } from '../components/Products/ProductPage/PurchaseInfo'
 import { Quantity } from '../components/Products/ProductPage/PurchaseInfo/Quantity'
 import products from '../data/products'
@@ -48,12 +47,7 @@ export default function Cart() {
                                 <h2>R${product.price.toLocaleString('pt-BR')}</h2>
 
                                 <div className={style.buttons}>
-                                    <StyledButton
-                                        bgColor="var(--primary)"
-                                        color="var(--grayLight)"
-                                    >
-                                        Remover
-                                    </StyledButton>
+                                    <button>Remover</button>
                                 </div>
                             </div>
                         </li>
