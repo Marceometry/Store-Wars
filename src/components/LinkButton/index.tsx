@@ -2,8 +2,8 @@ import { ReactNode } from "react"
 import Link from "next/link"
 import style from './style.module.scss'
 
-type LinkButtonProps = {
-    href?: string
+type StyledLinkProps = {
+    href: string
     color?: string
     bgColor: string
     outlined?: boolean
@@ -18,7 +18,7 @@ export function StyledLink({
     outlined,
     onClick,
     children,
-}: LinkButtonProps) {
+}: StyledLinkProps) {
     return (
         <Link href={href ?? ''}>
         <a className={style.linkButton} onClick={onClick} style={{
@@ -32,13 +32,21 @@ export function StyledLink({
     )
 }
 
+type StyledButtonProps = {
+    color?: string
+    bgColor: string
+    outlined?: boolean
+    children: ReactNode
+    onClick?: () => void
+}
+
 export function StyledButton({
     color,
     bgColor,
     outlined,
     onClick,
     children,
-}: LinkButtonProps) {
+}: StyledButtonProps) {
     return (
         <button className={style.linkButton} onClick={onClick} style={{
             color: color,
