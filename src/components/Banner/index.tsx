@@ -31,7 +31,7 @@ export function Banner() {
                         onClick={() => {
                             selectedCategories.splice(0, selectedCategories.length)
                             selectedCategories.push("Sith")
-                            filterByCategory(["Sith"])
+                            filterByCategory(["Sith"], '')
                         }}
                     >
                         Ver Produtos
@@ -53,7 +53,7 @@ export function Banner() {
                         onClick={() => {
                             selectedCategories.splice(0, selectedCategories.length)
                             selectedCategories.push("Jedi")
-                            filterByCategory(["Jedi"])
+                            filterByCategory(["Jedi"], '')
                         }}
                     >
                         Ver Produtos
