@@ -21,12 +21,12 @@ export default class MyDocument extends Document {
             as="font"
             crossOrigin=""
           />
-          {/* <link
+          <link
             rel="preload"
             href="/fonts/DistantGalaxy/SF Distant Galaxy.ttf"
             as="font"
             crossOrigin=""
-          /> */}
+          />
         </Head>
         <body>
           <Main />
