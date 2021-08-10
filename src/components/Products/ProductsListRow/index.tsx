@@ -43,7 +43,12 @@ export function ProductsListRow({ products, type, title }: ProductsSectionProps)
             <h1>{title}</h1>
 
             <div className={style.listarea}>
-                <button className={style.left} onClick={() => handleScroll('left')} disabled={scrollX === 0}>
+                <button
+                    className={style.left}
+                    disabled={scrollX === 0}
+                    aria-label="Rolar lista para a esquerda"
+                    onClick={() => handleScroll('left')}
+                >
                     <ArrowLeft />
                 </button>
 
@@ -56,7 +61,12 @@ export function ProductsListRow({ products, type, title }: ProductsSectionProps)
                     ))}
                 </div>
 
-                <button className={style.right} onClick={() => handleScroll('right')} disabled={!scrollRight}>
+                <button
+                    className={style.right}
+                    disabled={!scrollRight}
+                    aria-label="Rolar lista para a direita"
+                    onClick={() => handleScroll('right')}
+                >
                     <ArrowRight />
                 </button>
             </div>

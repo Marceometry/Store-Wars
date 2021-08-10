@@ -22,7 +22,7 @@ export function Header() {
                 <ToggleThemeButton />
 
                 <Link href="/cart">
-                <a>
+                <a aria-label="Abrir carrinho">
                     <ShoppingCart />
                 </a>
                 </Link>
