@@ -1,9 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import { ImagesGrid } from '../../components/Products/ProductPage/ImagesGrid'
-import { PurchaseInfo } from '../../components/Products/ProductPage/PurchaseInfo'
+
+import { ImagesGrid } from '../../components/Products/ImagesGrid'
+import { PurchaseInfo } from '../../components/Purchase/PurchaseInfo'
 import { NotFoundMessage } from '../../components/NotFoundMessage'
+import { StyledButton } from '../../components/LinkButton'
+
+import { usePurchase } from '../../contexts/PurchaseContext'
 import products, { Product } from '../../data/products'
+
 import style from '../../styles/productPage.module.scss'
 
 type ProductProps = {
@@ -14,6 +19,8 @@ export default function ProductPage({ product }: ProductProps) {
     if (!product) return <NotFoundMessage message="Produto não encontrado" />
 
     const { id, name, description, images, price } = product
+
+    const { addProductToCart } = usePurchase()
     
     return (
         <main className={`${style.container} container`}>
@@ -32,7 +39,22 @@ export default function ProductPage({ product }: ProductProps) {
                     <p><strong>Descrição:</strong> {description}</p>
                 </div>
 
-                <PurchaseInfo price={price} />
+                <PurchaseInfo price={price}>
+                    <StyledButton
+                        bgColor="var(--yellow)"
+                        color="var(--black)"
+                    >
+                        Comprar
+                    </StyledButton>
+                    
+                    <StyledButton
+                        onClick={() => addProductToCart(product)}
+                        bgColor="var(--yellow)"
+                        outlined
+                    >
+                        Carrinho +
+                    </StyledButton>
+                </PurchaseInfo>
             </div>
         </main>
     )

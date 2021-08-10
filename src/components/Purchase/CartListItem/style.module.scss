@@ -1,0 +1,54 @@
+.li {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid var(--bodyBackground);
+    }
+
+    .img, .productInfo, .alignRight {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img {
+        border-radius: 10px;
+        margin-right: 1.5rem;
+        overflow: hidden;
+    }
+
+    .productInfo {
+        flex: 1;
+        justify-content: space-between;
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        fieldset {
+            margin-top: 2rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+    }
+
+    .alignRight {
+        align-items: flex-end;
+        justify-content: space-between;
+
+        button {
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            margin-left: 1rem;
+            border: 1px solid var(--primary);
+            background: var(--primary);
+            color: var(--grayLight);
+
+            &:hover {
+                filter: brightness(.8);
+            }
+        }
+    }
+}

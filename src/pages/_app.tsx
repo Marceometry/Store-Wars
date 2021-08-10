@@ -1,5 +1,7 @@
 import type { AppProps } from 'next/app'
 import { ThemeContextProvider } from '../contexts/ThemeContext'
+import { SearchContextProvider } from '../contexts/SearchContext'
+import { PurchaseContextProvider } from '../contexts/PurchaseContext'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
@@ -9,7 +11,6 @@ import 'nprogress/nprogress.css'
 
 import '../styles/global.scss'
 import '../styles/fonts.scss'
-import { SearchContextProvider } from '../contexts/SearchContext'
 
 Nprogress.configure({
   showSpinner: false,
@@ -33,7 +34,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeContextProvider>
       <SearchContextProvider>
         <Header />
-        <Component {...pageProps} />
+          <PurchaseContextProvider>
+            <Component {...pageProps} />
+          </PurchaseContextProvider>
         <Footer />
       </SearchContextProvider>
     </ThemeContextProvider>
