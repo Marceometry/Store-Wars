@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 
-import { StyledButton } from '../components/LinkButton'
+import { StyledButton, StyledLink } from '../components/LinkButton'
 import { PurchaseInfo } from '../components/Purchase/PurchaseInfo'
 import { CartListItem } from '../components/Purchase/CartListItem'
 import { usePurchase } from '../contexts/PurchaseContext'
@@ -18,7 +18,6 @@ export default function Cart() {
             return total
         }, 0)
         setTotalPrice(totalPrice)
-        console.log('renderizou')
     }, [productsInCart])
 
     return (
@@ -31,18 +30,32 @@ export default function Cart() {
 
             <div className={style.cart}>
                 <ul>
-                    {productsInCart.map(product => (
-                        <CartListItem key={product.id} product={product} />
+                    {productsInCart.length === 0 ? (
+                        <h1 className={style.emptyCart}>O carrinho está vazio</h1>
+                    ) : (
+                        productsInCart.map(product => (
+                            <CartListItem key={product.id} product={product} />
+                        )
                     ))}
                 </ul>
 
                 <PurchaseInfo price={totalPrice} isOnCart>
-                    <StyledButton
-                        bgColor="var(--yellow)"
-                        color="var(--black)"
-                    >
-                        Comprar
-                    </StyledButton>
+                    {productsInCart.length === 0 ? (
+                        <StyledLink
+                            href="/search"
+                            bgColor="var(--yellow)"
+                            color="var(--black)"
+                        >
+                            Ver produtos
+                        </StyledLink>
+                    ) : (
+                        <StyledButton
+                            bgColor="var(--yellow)"
+                            color="var(--black)"
+                        >
+                            Comprar
+                        </StyledButton>
+                    )}
                 </PurchaseInfo>
             </div>
         </main>

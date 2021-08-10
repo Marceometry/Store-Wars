@@ -17,6 +17,10 @@
             height: fit-content;
             border-radius: 10px;
             border: 1px solid var(--bodyBackground);
+
+            .emptyCart {
+                text-align: center;
+            }
         }
     }
 }
