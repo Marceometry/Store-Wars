@@ -16,11 +16,11 @@ type ProductProps = {
 }
 
 export default function ProductPage({ product }: ProductProps) {
+    const { addProductToCart } = usePurchase()
+    
     if (!product) return <NotFoundMessage message="Produto não encontrado" />
 
     const { id, name, description, images, price } = product
-
-    const { addProductToCart } = usePurchase()
     
     return (
         <main className={`${style.container} container`}>
