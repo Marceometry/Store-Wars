@@ -7,8 +7,9 @@ type ProductData = {
 
 type PurchaseContextType = {
     productsInCart: ProductData[]
-    addProductToCart: (id: string, quantity: number) => void
     removeProductFromCart: (id: string) => void
+    addProductToCart: (id: string, quantity: number) => void
+    changeProductQuantity: (id: string, quantity: number) => void
 }
 
 type PurchaseContextProviderProps = {
@@ -33,8 +34,8 @@ export function PurchaseContextProvider({ children }: PurchaseContextProviderPro
     }, [productsInCart])
 
     function addProductToCart(id: string, quantity: number) {
-        const alreadyInCart = productsInCart.filter(productInCart => {
-            return productInCart.id === id
+        const alreadyInCart = productsInCart.filter(product => {
+            return product.id === id
         })
         
         if (alreadyInCart[0]) return
@@ -45,8 +46,8 @@ export function PurchaseContextProvider({ children }: PurchaseContextProviderPro
     function removeProductFromCart(id: string) {
         const newList = [...productsInCart]
 
-        newList.forEach((productInCart, index) => {
-            if (productInCart.id === id) {
+        newList.forEach((product, index) => {
+            if (product.id === id) {
                 newList.splice(index, 1)
             }
         })
@@ -54,11 +55,21 @@ export function PurchaseContextProvider({ children }: PurchaseContextProviderPro
         setProductsInCart([...newList])
     }
 
+    function changeProductQuantity(id: string, quantity: number) {
+        const alreadyInCart = productsInCart.filter(product => {
+            if (product.id === id) product.quantity = quantity
+            return true
+        })
+        
+        setProductsInCart([...alreadyInCart])
+    }
+
     return (
         <PurchaseContext.Provider value={{
             productsInCart,
             addProductToCart,
-            removeProductFromCart
+            removeProductFromCart,
+            changeProductQuantity
         }}>
             { children }
         </PurchaseContext.Provider>

@@ -1,7 +1,8 @@
 import Image from "next/image"
+import { useEffect, useState } from "react"
 import { usePurchase } from "../../../contexts/PurchaseContext"
 import { Product } from "../../../data/products"
-import { Quantity } from "../PurchaseInfo/Quantity"
+import { Quantity } from "../Quantity"
 
 import style from "./style.module.scss"
 
@@ -10,7 +11,12 @@ type CartListItemProps = {
 }
 
 export function CartListItem({ product }: CartListItemProps) {
-    const { removeProductFromCart } = usePurchase()
+    const { removeProductFromCart, changeProductQuantity } = usePurchase()
+    const [quantity, setQuantity] = useState(product.quantity ?? 1)
+
+    useEffect(() => {
+        changeProductQuantity(product.id, quantity)
+    }, [quantity])
 
     return (
         <li className={style.li}>
@@ -26,7 +32,7 @@ export function CartListItem({ product }: CartListItemProps) {
                     <p>{product.description}</p>
                 </div>
 
-                <Quantity quantity={1} />
+                <Quantity quantity={quantity} setQuantity={setQuantity} />
             </div>
             <div className={style.alignRight}>
                 <h2>R${product.price.toLocaleString('pt-BR')}</h2>

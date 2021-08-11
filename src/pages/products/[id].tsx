@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 
@@ -5,12 +6,12 @@ import { ImagesGrid } from '../../components/Products/ImagesGrid'
 import { PurchaseInfo } from '../../components/Purchase/PurchaseInfo'
 import { NotFoundMessage } from '../../components/NotFoundMessage'
 import { StyledButton } from '../../components/LinkButton'
+import { Quantity } from '../../components/Purchase/Quantity'
 
 import { usePurchase } from '../../contexts/PurchaseContext'
 import products, { Product } from '../../data/products'
 
 import style from '../../styles/productPage.module.scss'
-import { useState } from 'react'
 
 type ProductProps = {
     product: Product
@@ -39,9 +40,11 @@ export default function ProductPage({ product }: ProductProps) {
                     <h2>Por: R${price.toLocaleString('pt-BR')}</h2>
 
                     <p><strong>Descrição:</strong> {description}</p>
+
+                    <Quantity quantity={quantity} setQuantity={setQuantity} />
                 </div>
 
-                <PurchaseInfo price={price} quantity={quantity} setQuantity={setQuantity}>
+                <PurchaseInfo price={price * quantity}>
                     <StyledButton
                         bgColor="var(--yellow)"
                         color="var(--black)"

@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 
-import { StyledButton, StyledLink } from '../components/LinkButton'
+import { usePurchase } from '../contexts/PurchaseContext'
+import { NotFoundMessage } from '../components/NotFoundMessage'
 import { PurchaseInfo } from '../components/Purchase/PurchaseInfo'
 import { CartListItem } from '../components/Purchase/CartListItem'
-import { usePurchase } from '../contexts/PurchaseContext'
+import { StyledButton, StyledLink } from '../components/LinkButton'
 import products, { Products } from '../data/products'
 
 import style from '../styles/cartPage.module.scss'
 
 export default function Cart() {
     const { productsInCart } = usePurchase()
-    const [totalPrice, setTotalPrice] = useState(0)
     const [productsList, setProductsList] = useState([] as Products)
+    const [totalPrice, setTotalPrice] = useState(0)
 
     useEffect(() => {
         const productsListArray = products.filter(product => {
@@ -53,9 +54,9 @@ export default function Cart() {
             <h1>Carrinho</h1>
 
             <div className={style.cart}>
-                <ul>
+                <ul className={productsList.length === 0 ? style.emptyCart : ''}>
                     {productsList.length === 0 ? (
-                        <h1 className={style.emptyCart}>O carrinho está vazio</h1>
+                        <NotFoundMessage message="O carrinho está vazio" />
                     ) : (
                         productsList.map(product => (
                             <CartListItem key={product.id} product={product} />
@@ -63,7 +64,7 @@ export default function Cart() {
                     ))}
                 </ul>
 
-                <PurchaseInfo price={totalPrice} isOnCart>
+                <PurchaseInfo price={totalPrice}>
                     {productsList.length === 0 ? (
                         <StyledLink
                             href="/search"
