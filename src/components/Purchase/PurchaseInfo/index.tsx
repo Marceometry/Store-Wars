@@ -6,9 +6,11 @@ type PurchaseProps = {
     price: number
     isOnCart?: boolean
     children: ReactNode
+    quantity: number
+    setQuantity: (value: number) => void
 }
 
-export function PurchaseInfo({ price, isOnCart, children }: PurchaseProps) {
+export function PurchaseInfo({ price, isOnCart, quantity, setQuantity, children }: PurchaseProps) {
     return (
         <div className={style.container}>
             <div className={style.header}>
@@ -18,7 +20,7 @@ export function PurchaseInfo({ price, isOnCart, children }: PurchaseProps) {
             </div>
 
             {!isOnCart ? (
-                <Quantity />
+                <Quantity quantity={quantity} setQuantity={setQuantity} />
             ) : ''}
 
             <div className={style.buttons}>

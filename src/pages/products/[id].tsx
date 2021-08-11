@@ -10,6 +10,7 @@ import { usePurchase } from '../../contexts/PurchaseContext'
 import products, { Product } from '../../data/products'
 
 import style from '../../styles/productPage.module.scss'
+import { useState } from 'react'
 
 type ProductProps = {
     product: Product
@@ -17,6 +18,7 @@ type ProductProps = {
 
 export default function ProductPage({ product }: ProductProps) {
     const { addProductToCart } = usePurchase()
+    const [quantity, setQuantity] = useState(1)
     
     if (!product) return <NotFoundMessage message="Produto não encontrado" />
 
@@ -39,7 +41,7 @@ export default function ProductPage({ product }: ProductProps) {
                     <p><strong>Descrição:</strong> {description}</p>
                 </div>
 
-                <PurchaseInfo price={price}>
+                <PurchaseInfo price={price} quantity={quantity} setQuantity={setQuantity}>
                     <StyledButton
                         bgColor="var(--yellow)"
                         color="var(--black)"
@@ -48,7 +50,7 @@ export default function ProductPage({ product }: ProductProps) {
                     </StyledButton>
                     
                     <StyledButton
-                        onClick={() => addProductToCart(product.id, 1)}
+                        onClick={() => addProductToCart(product.id, quantity)}
                         bgColor="var(--yellow)"
                         outlined
                     >
