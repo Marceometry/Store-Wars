@@ -45,7 +45,7 @@ const products = [
     },
     {
         id: "luminaria-estrela-da-morte",
-        images: ["main.jpg"],
+        images: ["main.jpg", "1.jpg", "2.jpg"],
         name: "Luminária - Estrela da Morte",
         description: "Acompanha controle remoto com 16 opções de cores",
         price: 79.99,
