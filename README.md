@@ -33,7 +33,7 @@ Este projeto FrontEnd é a idealização de uma loja virtual temática de Star W
 
 - Tema dark e light
 - Pesquisa de texto para encontrar produtos
-- Filtragem da pesquisa por categorias de produtos
+- Filtragem de pesquisa por categoria e por preço
 - Adicionar e remover produtos do carrinho
 - Salva o tema e os produtos do carrinho no localStorage do navegador
 
