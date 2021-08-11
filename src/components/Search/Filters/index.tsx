@@ -1,10 +1,19 @@
 import { useSearch } from '../../../contexts/SearchContext'
 import { categories } from '../../../data/products'
 import { Checkbox } from './Checkbox'
+import { PriceInput } from './PriceInput'
 import style from './style.module.scss'
 
 export function Filters() {
-    const { filterByCategory, selectedCategories, searchText } = useSearch()
+    const {
+        searchProducts,
+        selectedCategories,
+        searchText,
+        minPrice,
+        setMinPrice,
+        maxPrice,
+        setMaxPrice
+    } = useSearch()
     
     function handleSelectedCategories(category: string, isChecked: boolean) {        
         if (isChecked) {
@@ -16,11 +25,23 @@ export function Filters() {
                 }
             })
         }
-        filterByCategory(selectedCategories, searchText)
+        searchProducts(searchText, selectedCategories, minPrice, maxPrice)
     }
 
     function verifyIsChecked(category: string) {
         return selectedCategories.includes(category)
+    }
+
+    function handleMinPrice(minPrice: number) {
+        const max = minPrice > maxPrice && maxPrice > 0 ? minPrice * 2 : maxPrice
+        max !== maxPrice && setMaxPrice(max)
+        setMinPrice(minPrice)
+        searchProducts(searchText, selectedCategories, minPrice, max)
+    }
+
+    function handleMaxPrice(maxPrice: number) {
+        setMaxPrice(maxPrice)
+        searchProducts(searchText, selectedCategories, minPrice, maxPrice)
     }
 
     return (
@@ -38,6 +59,14 @@ export function Filters() {
                         handleSelectedCategories={handleSelectedCategories}
                     />
                 ))}
+            </div>
+
+            <div className={style.filters}>
+                <h1>Preço</h1>
+
+                <PriceInput min={minPrice} max={maxPrice}
+                    handleMinPrice={handleMinPrice} handleMaxPrice={handleMaxPrice}
+                />
             </div>
         </aside>
     )
