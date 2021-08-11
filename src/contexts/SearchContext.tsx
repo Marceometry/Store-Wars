@@ -1,6 +1,6 @@
 import { useState, createContext, useContext, ReactNode, useCallback, useEffect } from "react"
 import { debounce } from "lodash"
-import products, { Product, Products } from "../data/products"
+import products, { Products } from "../data/products"
 
 type SearchContextProviderProps = {
     children: ReactNode
@@ -33,11 +33,11 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
 
     useEffect(() => {
         setIsLoading(true)
-        debouncedSearch(searchText)
+        debouncedSearch(searchText, selectedCategories, minPrice, maxPrice)
     }, [searchText])
     
     const debouncedSearch = useCallback(
-        debounce(value => {
+        debounce((value, selectedCategories, minPrice, maxPrice) => {
             searchProducts(value, selectedCategories, minPrice, maxPrice)
             setIsLoading(false)
         }, 400
@@ -46,15 +46,14 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
 
     function searchProducts(value: string, selectedCategories: string[], minPrice: number, maxPrice: number) {
         let result = products
+        
         if (value) result = filterByText(value)
 
+        if (selectedCategories.length > 0) result = filterByCategory(selectedCategories, products)
+
+        if (maxPrice > 0 || minPrice > 0) result = filterByPrice(minPrice, maxPrice, result)
+
         setProductsResult(result)
-
-        if (selectedCategories.length > 0) {
-            result = filterByCategory(selectedCategories, products)
-        }
-
-        if (maxPrice > 0 || minPrice > 0) filterByPrice(minPrice, maxPrice, result)
     }
 
     function filterByText(value: string) {
@@ -80,31 +79,27 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
 
     function filterByCategory(categories: string[], products: Products) {
         const result = products.filter(product => {
-            return compareCategories(categories, product)
+            const comparisonResult = categories.map(category => {
+                const hasCategory = product.categories.find(productCategory => {
+                    return category === productCategory
+                })
+                
+                if (hasCategory) {
+                    return true
+                } else {
+                    return false
+                }
+            })
+            
+            const productMatches = comparisonResult.find(result => {
+                return result === true
+            })
+    
+            return productMatches
         })
 
         setProductsResult(result)
         return result
-    }
-
-    function compareCategories(categories: string[], product: Product) {
-        const comparisonResult = categories.map(category => {
-            const hasCategory = product.categories.find(productCategory => {
-                return category === productCategory
-            })
-            
-            if (hasCategory) {
-                return true
-            } else {
-                return false
-            }
-        })
-        
-        const productMatches = comparisonResult.find(result => {
-            return result === true
-        })
-
-        return productMatches
     }
 
     function filterByPrice(min: number, max: number, products: Products) {
