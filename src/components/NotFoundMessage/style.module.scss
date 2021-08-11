@@ -14,7 +14,7 @@
     > div {
         padding: 1rem;
         border-radius: 9999px;
-        background: #FFFFFF;
+        background: var(--grayLight);
 
         img {
             transform: scale(.8) translateY(-7px);
