@@ -1,11 +1,15 @@
 import style from './style.module.scss'
 
-export function Quantity() {
+type QuantityProps = {
+    defaultValue?: number
+}
+
+export function Quantity({ defaultValue = 1 }: QuantityProps) {
     return (
         <fieldset className={style.fieldset}>
             <label htmlFor="quantity">Quantidade:</label>
             <input type="number" name="quantity"
-                id="quantity" defaultValue={1} min={1} />
+                id="quantity" defaultValue={defaultValue} min={1} />
         </fieldset>
     )
 }

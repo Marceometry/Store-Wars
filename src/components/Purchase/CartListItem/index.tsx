@@ -26,7 +26,7 @@ export function CartListItem({ product }: CartListItemProps) {
                     <p>{product.description}</p>
                 </div>
 
-                <Quantity />
+                <Quantity defaultValue={product.quantity} />
             </div>
             <div className={style.alignRight}>
                 <h2>R${product.price.toLocaleString('pt-BR')}</h2>

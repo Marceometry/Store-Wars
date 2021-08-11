@@ -6,6 +6,7 @@ export type Product = {
     price: number
     tags: string[]
     categories: string[]
+    quantity?: number
 }
 
 export type Products = Product[]

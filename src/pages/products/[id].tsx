@@ -48,7 +48,7 @@ export default function ProductPage({ product }: ProductProps) {
                     </StyledButton>
                     
                     <StyledButton
-                        onClick={() => addProductToCart(product.id)}
+                        onClick={() => addProductToCart(product.id, 1)}
                         bgColor="var(--yellow)"
                         outlined
                     >

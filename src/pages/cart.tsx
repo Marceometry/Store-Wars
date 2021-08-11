@@ -15,20 +15,31 @@ export default function Cart() {
     const [productsList, setProductsList] = useState([] as Products)
 
     useEffect(() => {
-        const productsList = products.filter(product => {
-            const isInCart = productsInCart.filter(id => {
-                return product.id === id
+        const productsListArray = products.filter(product => {
+            const isInCart = productsInCart.filter(productInCart => {
+                return product.id === productInCart.id
             })
             
             return isInCart[0]
         })
-        setProductsList(productsList)
+
+        productsListArray.forEach(product => {
+            productsInCart.forEach(productInCart => {
+                if (product.id !== productInCart.id) return
+                
+                product['quantity'] = productInCart.quantity
+                return
+            })
+        })
+
+        setProductsList(productsListArray)
     }, [productsInCart])
     
     useEffect(() => {
         const totalPrice = productsList.reduce((total, product) => {
-            total += product.price
-            return total
+            if (!product.quantity) return total += product.price
+            
+            return total += product.price * product.quantity
         }, 0)
         setTotalPrice(totalPrice)
     }, [productsList])
