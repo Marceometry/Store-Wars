@@ -1,4 +1,5 @@
 import { useState } from "react"
+import style from "./style.module.scss"
 
 type CheckboxProps = {
     category: string
@@ -15,7 +16,7 @@ export function Checkbox({ category, verifyIsChecked, handleSelectedCategories }
     }
 
     return (
-        <fieldset key={category}>
+        <fieldset className={style.fieldset}>
             <input
                 name={category}
                 type="checkbox"
