@@ -1,9 +1,8 @@
 import { useState, createContext, useContext, ReactNode, useEffect } from "react"
-import { Product, Products } from "../data/products"
 
 type PurchaseContextType = {
-    productsInCart: Products
-    addProductToCart: (product: Product) => void
+    productsInCart: string[]
+    addProductToCart: (id: string) => void
     removeProductFromCart: (id: string) => void
 }
 
@@ -14,23 +13,35 @@ type PurchaseContextProviderProps = {
 export const PurchaseContext = createContext({} as PurchaseContextType)
 
 export function PurchaseContextProvider({ children }: PurchaseContextProviderProps) {
-    const [productsInCart, setProductsInCart] = useState([] as Products)
+    const [productsInCart, setProductsInCart] = useState([''])
 
-    function addProductToCart(product: Product) {
+    useEffect(() => {
+        const storagedProducts = localStorage.getItem('productsInCart')
+        
+        if (!storagedProducts) return
+        
+        setProductsInCart(storagedProducts.split(', '))
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('productsInCart', productsInCart.join(', '))
+    }, [productsInCart])
+
+    function addProductToCart(id: string) {
         const alreadyInCart = productsInCart.filter(productInCart => {
-            return productInCart.id === product.id
+            return productInCart === id
         })
         
         if (alreadyInCart[0]) return
 
-        setProductsInCart([...productsInCart, product])
+        setProductsInCart([...productsInCart, id])
     }
 
     function removeProductFromCart(id: string) {
         const newList = [...productsInCart]
 
         newList.forEach((productInCart, index) => {
-            if (productInCart.id === id) {
+            if (productInCart === id) {
                 newList.splice(index, 1)
             }
         })
