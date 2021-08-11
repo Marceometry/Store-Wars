@@ -5,7 +5,7 @@ import { Close } from "../../../svg/Close"
 import { Search } from "../../../svg/Search"
 import styles from "./style.module.scss"
 
-export default function SearchInput() {
+export function SearchInput() {
   const inputRef = useRef<HTMLInputElement>(null)
   const { searchText, setSearchText } = useSearch()
   const { pathname, push } = useRouter()
