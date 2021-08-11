@@ -9,8 +9,8 @@ export function NotFoundMessage({ message }: { message: string }) {
                 <title>{message} | Store Wars</title>
             </Head>
             
+            <Image width={128} height={128} src="/images/sad-icon.png" alt="Ícone triste" />
             <h1>{message}</h1>
-            <Image width={600} height={340} src="/images/sad-porg.jpg" alt="sad" />
         </div>
     )
 }

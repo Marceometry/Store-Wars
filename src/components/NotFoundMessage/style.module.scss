@@ -6,14 +6,18 @@
     justify-content: center;
     flex-direction: column;
 
-    > div {
-        border-radius: 10px;
-        box-shadow: 0 0 50px 50px var(--black) !important;
+    h1 {
+        margin-top: 1rem;
+        text-align: center;
     }
 
-    h1 {
-        color: var(--grayLight);
-        text-align: center;
-        z-index: 3;
+    > div {
+        padding: 1rem;
+        border-radius: 9999px;
+        background: #FFFFFF;
+
+        img {
+            transform: scale(.8) translateY(-7px);
+        }
     }
 }
