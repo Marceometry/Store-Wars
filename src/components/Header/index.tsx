@@ -1,11 +1,16 @@
-import { ShoppingCart } from '../../svg/ShoppingCart'
-import { ToggleThemeButton } from './ToggleThemeButton'
-import SearchInput from '../Search/SearchInput'
-import style from './style.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
 
+import { usePurchase } from '../../contexts/PurchaseContext'
+import { ShoppingCart } from '../../svg/ShoppingCart'
+import { ToggleThemeButton } from './ToggleThemeButton'
+import { SearchInput } from '../Search/SearchInput'
+
+import style from './style.module.scss'
+
 export function Header() {
+    const { productsInCart } = usePurchase()
+
     return (
         <header className={style.header}>
             <div>
@@ -24,6 +29,7 @@ export function Header() {
                 <Link href="/cart">
                 <a aria-label="Abrir carrinho">
                     <ShoppingCart />
+                    {productsInCart[0] ? <span>{productsInCart.length}</span> : ''}
                 </a>
                 </Link>
             </div>

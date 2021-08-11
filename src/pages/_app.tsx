@@ -33,10 +33,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeContextProvider>
       <SearchContextProvider>
-        <Header />
-          <PurchaseContextProvider>
-            <Component {...pageProps} />
-          </PurchaseContextProvider>
+        <PurchaseContextProvider>
+          <Header />
+          <Component {...pageProps} />
+        </PurchaseContextProvider>
         <Footer />
       </SearchContextProvider>
     </ThemeContextProvider>
