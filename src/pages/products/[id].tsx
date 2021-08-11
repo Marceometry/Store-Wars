@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 
@@ -18,12 +18,21 @@ type ProductProps = {
 }
 
 export default function ProductPage({ product }: ProductProps) {
-    const { addProductToCart } = usePurchase()
+    const { productsInCart, addProductToCart, removeProductFromCart } = usePurchase()
     const [quantity, setQuantity] = useState(1)
+    const [isInCart, setIsInCart] = useState(false)
     
     if (!product) return <NotFoundMessage message="Produto não encontrado" />
 
     const { id, name, description, images, price } = product
+
+    useEffect(() => {
+        const isInCart = productsInCart.filter(product => {
+            return product.id === id
+        })
+        
+        setIsInCart(isInCart[0] ? true : false)
+    }, [productsInCart])
     
     return (
         <main className={`${style.container} container`}>
@@ -53,11 +62,15 @@ export default function ProductPage({ product }: ProductProps) {
                     </StyledButton>
                     
                     <StyledButton
-                        onClick={() => addProductToCart(product.id, quantity)}
+                        onClick={() => {
+                            !isInCart ? (
+                                addProductToCart(product.id, quantity)
+                            ) : removeProductFromCart(product.id)
+                        }}
                         bgColor="var(--yellow)"
                         outlined
                     >
-                        Carrinho +
+                        {isInCart ? 'Remover do carrinho' : 'Adicionar no Carrinho'}
                     </StyledButton>
                 </PurchaseInfo>
             </div>
