@@ -49,7 +49,7 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
         
         if (value) result = filterByText(value)
 
-        if (selectedCategories.length > 0) result = filterByCategory(selectedCategories, products)
+        if (selectedCategories.length > 0) result = filterByCategory(selectedCategories, result)
 
         if (maxPrice > 0 || minPrice > 0) result = filterByPrice(minPrice, maxPrice, result)
 
