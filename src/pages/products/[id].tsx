@@ -23,12 +23,13 @@ export default function ProductPage({ product }: ProductProps) {
     const [isInCart, setIsInCart] = useState(false)
 
     useEffect(() => {
-        const isInCart = productsInCart.filter(product => {
-            return product.id === id
+        if (!product) return
+        const isInCart = productsInCart.filter(productInCart => {
+            return productInCart.id === product.id
         })
         
         setIsInCart(isInCart[0] ? true : false)
-    }, [productsInCart])
+    }, [productsInCart, product])
     
     if (!product) return <NotFoundMessage message="Produto não encontrado" />
 
