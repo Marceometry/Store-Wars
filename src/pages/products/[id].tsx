@@ -21,10 +21,6 @@ export default function ProductPage({ product }: ProductProps) {
     const { productsInCart, addProductToCart, removeProductFromCart } = usePurchase()
     const [quantity, setQuantity] = useState(1)
     const [isInCart, setIsInCart] = useState(false)
-    
-    if (!product) return <NotFoundMessage message="Produto não encontrado" />
-
-    const { id, name, description, images, price } = product
 
     useEffect(() => {
         const isInCart = productsInCart.filter(product => {
@@ -33,6 +29,10 @@ export default function ProductPage({ product }: ProductProps) {
         
         setIsInCart(isInCart[0] ? true : false)
     }, [productsInCart])
+    
+    if (!product) return <NotFoundMessage message="Produto não encontrado" />
+
+    const { id, name, description, images, price } = product
     
     return (
         <main className={`${style.container} container`}>
