@@ -1,5 +1,5 @@
 import { useSearch } from '../../../contexts/SearchContext'
-import { categories } from '../../../data/products'
+import { categories } from '../../../utils/productCategories'
 import { Checkbox } from './Checkbox'
 import { PriceInput } from './PriceInput'
 import style from './style.module.scss'
@@ -8,7 +8,6 @@ export function Filters() {
     const {
         searchProducts,
         selectedCategories,
-        searchText,
         minPrice,
         setMinPrice,
         maxPrice,
@@ -25,7 +24,7 @@ export function Filters() {
                 }
             })
         }
-        searchProducts(searchText, selectedCategories, minPrice, maxPrice)
+        searchProducts({ categories: selectedCategories })
     }
 
     function verifyIsChecked(category: string) {
@@ -36,12 +35,12 @@ export function Filters() {
         const max = minPrice > maxPrice && maxPrice > 0 ? minPrice * 2 : maxPrice
         max !== maxPrice && setMaxPrice(max)
         setMinPrice(minPrice)
-        searchProducts(searchText, selectedCategories, minPrice, max)
+        searchProducts({ minimumPrice: minPrice, maximumPrice: max })
     }
 
     function handleMaxPrice(maxPrice: number) {
         setMaxPrice(maxPrice)
-        searchProducts(searchText, selectedCategories, minPrice, maxPrice)
+        searchProducts({ minimumPrice: minPrice, maximumPrice: maxPrice })
     }
 
     return (

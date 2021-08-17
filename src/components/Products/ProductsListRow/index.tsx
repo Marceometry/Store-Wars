@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react"
-import { Products } from "../../../data/products"
+import { Product } from "../../../utils/productType"
 import { ArrowLeft, ArrowRight } from "../../../svg/Arrows"
 import { ProductCard } from "../ProductCard"
 import style from "./style.module.scss"
 
 type ProductsSectionProps = {
-    products: Products
+    products: Product[]
     type: string
     title: string
 }

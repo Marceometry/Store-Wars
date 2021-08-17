@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import { useSearch } from '../../contexts/SearchContext'
 import { StyledLink } from '../LinkButton'
-import products from '../../data/products'
+// import products from '../../data/products'
 import style from './style.module.scss'
 
 export function Banner() {
-    const { selectedCategories, filterByCategory } = useSearch()
+    const { searchProducts, selectedCategories } = useSearch()
 
     return (
         <div className={style.banner}>
@@ -32,7 +32,7 @@ export function Banner() {
                         onClick={() => {
                             selectedCategories.splice(0, selectedCategories.length)
                             selectedCategories.push("Sith")
-                            filterByCategory(["Sith"], products)
+                            searchProducts({ categories: ["Sith"] })
                         }}
                     >
                         Ver Produtos
@@ -54,7 +54,7 @@ export function Banner() {
                         onClick={() => {
                             selectedCategories.splice(0, selectedCategories.length)
                             selectedCategories.push("Jedi")
-                            filterByCategory(["Jedi"], products)
+                            searchProducts({ categories: ["Jedi"] })
                         }}
                     >
                         Ver Produtos
