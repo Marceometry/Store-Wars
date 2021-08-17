@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 import { usePurchase } from "../../../contexts/PurchaseContext"
 import { Product } from "../../../utils/productType"
@@ -27,7 +28,9 @@ export function CartListItem({ product }: CartListItemProps) {
             </div>
             <div className={style.productInfo}>
                 <div>
-                    <h1>{product.name}</h1>
+                    <Link href={`/products/${product._id}`}>
+                        <a> <h1>{product.name}</h1> </a>
+                    </Link>
 
                     <p>{product.description}</p>
                 </div>
