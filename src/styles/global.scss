@@ -29,12 +29,6 @@ h1 {
   font-size: 3rem;
 }
 
-button, a {
-  cursor: pointer;  
-  transition-property: background, border, filter;
-  transition-duration: .2s;
-}
-
 fieldset, input,
 button, a {
   all: unset;
@@ -42,6 +36,12 @@ button, a {
   &:focus {
     outline: 1px solid var(--yellow);
   }
+}
+
+button, a {
+  cursor: pointer;  
+  transition-property: background, border, filter;
+  transition-duration: .2s;
 }
 
 input::placeholder {
