@@ -63,10 +63,10 @@ export default function Cart() {
 
             <div className={style.cart}>
                 <ul className={productsList.length === 0 ? style.emptyCart : ''}>
-                    {productsList.length === 0 ? (
-                        <NotFoundMessage message="O carrinho está vazio" />
-                    ) : loading ? (
+                    {loading ? (
                         <Loading />
+                    ) : productsList.length === 0 ? (
+                        <NotFoundMessage message="O carrinho está vazio" />
                     ) : (
                         productsList.map(product => (
                             <CartListItem key={product._id} product={product} />
