@@ -1,6 +1,6 @@
 import { useState, createContext, useContext, ReactNode, useCallback, useEffect } from "react"
 import { debounce } from "lodash"
-import products, { Products } from "../data/products"
+import { Product } from "../utils/productType"
 
 type SearchContextProviderProps = {
     children: ReactNode
@@ -11,10 +11,10 @@ type SearchContextType = {
     setSearchText: (value: string) => void
     isLoading: boolean
     setIsLoading: (value: boolean) => void
-    productsResult: Products
-    filterByCategory: (categories: string[], products: Products) => void
+    productsResult: Product[]
+    // filterByCategory: (categories: string[], products: Product[]) => void
     selectedCategories: string[]
-    searchProducts: (value: string, selectedCategories: string[], minPrice: number, maxPrice: number) => void
+    // searchProducts: (value: string, selectedCategories: string[], minPrice: number, maxPrice: number) => void
     minPrice: number
     setMinPrice: (value: number) => void
     maxPrice: number
@@ -24,7 +24,7 @@ type SearchContextType = {
 export const SearchContext = createContext({} as SearchContextType)
 
 export function SearchContextProvider({ children }: SearchContextProviderProps) {
-    const [productsResult, setProductsResult] = useState(products)
+    const [productsResult, setProductsResult] = useState([] as Product[])
     const [selectedCategories] = useState([] as string[])
     const [searchText, setSearchText] = useState('')
     const [minPrice, setMinPrice] = useState(0)
@@ -33,85 +33,85 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
 
     useEffect(() => {
         setIsLoading(true)
-        debouncedSearch(searchText, selectedCategories, minPrice, maxPrice)
+        // debouncedSearch(searchText, selectedCategories, minPrice, maxPrice)
     }, [searchText])
     
-    const debouncedSearch = useCallback(
-        debounce((value, selectedCategories, minPrice, maxPrice) => {
-            searchProducts(value, selectedCategories, minPrice, maxPrice)
-            setIsLoading(false)
-        }, 400
-        ), [],
-    )
+    // const debouncedSearch = useCallback(
+    //     debounce((value, selectedCategories, minPrice, maxPrice) => {
+    //         searchProducts(value, selectedCategories, minPrice, maxPrice)
+    //         setIsLoading(false)
+    //     }, 400
+    //     ), [],
+    // )
 
-    function searchProducts(value: string, selectedCategories: string[], minPrice: number, maxPrice: number) {
-        let result = products
+    // function searchProducts(value: string, selectedCategories: string[], minPrice: number, maxPrice: number) {
+    //     let result = products
         
-        if (value) result = filterByText(value)
+    //     if (value) result = filterByText(value)
 
-        if (selectedCategories.length > 0) result = filterByCategory(selectedCategories, result)
+    //     if (selectedCategories.length > 0) result = filterByCategory(selectedCategories, result)
 
-        if (maxPrice > 0 || minPrice > 0) result = filterByPrice(minPrice, maxPrice, result)
+    //     if (maxPrice > 0 || minPrice > 0) result = filterByPrice(minPrice, maxPrice, result)
 
-        setProductsResult(result)
-    }
+    //     setProductsResult(result)
+    // }
 
-    function filterByText(value: string) {
-        const result = products.filter(product => {
-            const lowercaseName = product.name.toLowerCase()
-            const lowercaseValue = value.toLowerCase()
-            let mustInclude = 0
+    // function filterByText(value: string) {
+    //     const result = products.filter(product => {
+    //         const lowercaseName = product.name.toLowerCase()
+    //         const lowercaseValue = value.toLowerCase()
+    //         let mustInclude = 0
             
-            const tagsResult = product.tags.filter(tag => {
-                return lowercaseValue.includes(tag)
-            })
+    //         const tagsResult = product.tags.filter(tag => {
+    //             return lowercaseValue.includes(tag)
+    //         })
 
-            mustInclude = tagsResult.length
+    //         mustInclude = tagsResult.length
 
-            lowercaseName.includes(lowercaseValue) && (
-                mustInclude = 1
-            )
+    //         lowercaseName.includes(lowercaseValue) && (
+    //             mustInclude = 1
+    //         )
 
-            return mustInclude
-        })
-        return result
-    }
+    //         return mustInclude
+    //     })
+    //     return result
+    // }
 
-    function filterByCategory(categories: string[], products: Products) {
-        const result = products.filter(product => {
-            const comparisonResult = categories.map(category => {
-                const hasCategory = product.categories.find(productCategory => {
-                    return category === productCategory
-                })
+    // function filterByCategory(categories: string[], products: Products) {
+    //     const result = products.filter(product => {
+    //         const comparisonResult = categories.map(category => {
+    //             const hasCategory = product.categories.find(productCategory => {
+    //                 return category === productCategory
+    //             })
                 
-                if (hasCategory) {
-                    return true
-                } else {
-                    return false
-                }
-            })
+    //             if (hasCategory) {
+    //                 return true
+    //             } else {
+    //                 return false
+    //             }
+    //         })
             
-            const productMatches = comparisonResult.find(result => {
-                return result === true
-            })
+    //         const productMatches = comparisonResult.find(result => {
+    //             return result === true
+    //         })
     
-            return productMatches
-        })
+    //         return productMatches
+    //     })
 
-        setProductsResult(result)
-        return result
-    }
+    //     setProductsResult(result)
+    //     return result
+    // }
 
-    function filterByPrice(min: number, max: number, products: Products) {
-        const result = products.filter(product => {
-            if (max === 0) return product.price >= min
-            if (min === 0) return product.price <= max
-            return product.price >= min && product.price <= max
-        })
+    // function filterByPrice(min: number, max: number, products: Products) {
+    //     const result = products.filter(product => {
+    //         if (max === 0) return product.price >= min
+    //         if (min === 0) return product.price <= max
+    //         return product.price >= min && product.price <= max
+    //     })
 
-        setProductsResult(result)
-        return result
-    }
+    //     setProductsResult(result)
+    //     return result
+    // }
 
     return (
         <SearchContext.Provider value={{
@@ -120,9 +120,9 @@ export function SearchContextProvider({ children }: SearchContextProviderProps) 
             searchText,
             setSearchText,
             productsResult,
-            filterByCategory,
+            // filterByCategory,
             selectedCategories,
-            searchProducts,
+            // searchProducts,
             minPrice,
             setMinPrice,
             maxPrice,
