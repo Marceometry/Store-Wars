@@ -1,7 +1,10 @@
 import Head from "next/head"
+
 import { ProductCard } from "../components/Products/ProductCard"
 import { Filters } from "../components/Search/Filters"
+import { Loading } from "../components/Utils/Loading"
 import { useSearch } from "../contexts/SearchContext"
+
 import style from "../styles/searchPage.module.scss"
 
 export default function Search() {
@@ -16,7 +19,7 @@ export default function Search() {
             <Filters />
 
             {isLoading ? (
-                <h1 style={{width: 'fit-content', margin: 'auto'}}>Carregando...</h1>
+                <Loading />
             ) : (
                 <div className={style.products}>
                     {productsResult.map((product, index) => (

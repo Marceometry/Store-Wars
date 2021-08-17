@@ -9,6 +9,7 @@ import { NotFoundMessage } from '../components/Utils/NotFoundMessage'
 import { PurchaseInfo } from '../components/Purchase/PurchaseInfo'
 import { CartListItem } from '../components/Purchase/CartListItem'
 import { StyledButton, StyledLink } from '../components/Utils/LinkButton'
+import { Loading } from '../components/Utils/Loading'
 
 import { Product } from '../utils/productType'
 
@@ -65,7 +66,7 @@ export default function Cart() {
                     {productsList.length === 0 ? (
                         <NotFoundMessage message="O carrinho está vazio" />
                     ) : loading ? (
-                        <h1>Carregando...</h1>
+                        <Loading />
                     ) : (
                         productsList.map(product => (
                             <CartListItem key={product._id} product={product} />
