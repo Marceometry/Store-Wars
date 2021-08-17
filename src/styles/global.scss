@@ -29,32 +29,31 @@ h1 {
   font-size: 3rem;
 }
 
-ul {
-  list-style: none;
-}
-
-img {
-  object-fit: cover;
-}
-
 button, a {
-  all: unset;
-  cursor: pointer;
-  
+  cursor: pointer;  
   transition-property: background, border, filter;
   transition-duration: .2s;
+}
+
+fieldset, input,
+button, a {
+  all: unset;
 
   &:focus {
     outline: 1px solid var(--yellow);
   }
 }
 
-fieldset, input {
-  all: unset
-}
-
 input::placeholder {
   font-family: "Mandalore Title", "Mandalore", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  object-fit: cover;
 }
 
 
