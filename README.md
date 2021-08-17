@@ -35,6 +35,7 @@ Este projeto FrontEnd é a idealização de uma loja virtual temática de Star W
 ## 💣 Funcionalidades
 
 - Tema dark e light
+- Conexão com a minha [API GraphQL](https://github.com/Marceometry/Store-Wars-Products-api) de produtos via Apollo Client
 - Pesquisa de texto para encontrar produtos
 - Filtragem de pesquisa por categoria e por preço
 - Adicionar e remover produtos do carrinho
