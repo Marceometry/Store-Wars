@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { useSearch } from '../../contexts/SearchContext'
-import { StyledLink } from '../LinkButton'
+import { StyledLink } from '../Utils/LinkButton'
 // import products from '../../data/products'
 import style from './style.module.scss'
 

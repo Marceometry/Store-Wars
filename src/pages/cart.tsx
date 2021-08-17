@@ -5,10 +5,10 @@ import { useQuery } from '@apollo/client'
 import { GET_PRODUCTS } from '../services/graphql/getProducts'
 
 import { usePurchase } from '../contexts/PurchaseContext'
-import { NotFoundMessage } from '../components/NotFoundMessage'
+import { NotFoundMessage } from '../components/Utils/NotFoundMessage'
 import { PurchaseInfo } from '../components/Purchase/PurchaseInfo'
 import { CartListItem } from '../components/Purchase/CartListItem'
-import { StyledButton, StyledLink } from '../components/LinkButton'
+import { StyledButton, StyledLink } from '../components/Utils/LinkButton'
 
 import { Product } from '../utils/productType'
 
@@ -62,10 +62,10 @@ export default function Cart() {
 
             <div className={style.cart}>
                 <ul className={productsList.length === 0 ? style.emptyCart : ''}>
-                    {loading ? (
-                        <h1>Carregando...</h1>
-                    ) : productsList.length === 0 ? (
+                    {productsList.length === 0 ? (
                         <NotFoundMessage message="O carrinho está vazio" />
+                    ) : loading ? (
+                        <h1>Carregando...</h1>
                     ) : (
                         productsList.map(product => (
                             <CartListItem key={product._id} product={product} />

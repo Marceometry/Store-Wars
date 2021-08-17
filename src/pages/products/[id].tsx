@@ -8,8 +8,8 @@ import { GET_PRODUCTS } from '../../services/graphql/getProducts'
 
 import { ImagesGrid } from '../../components/Products/ImagesGrid'
 import { PurchaseInfo } from '../../components/Purchase/PurchaseInfo'
-import { NotFoundMessage } from '../../components/NotFoundMessage'
-import { StyledButton } from '../../components/LinkButton'
+import { NotFoundMessage } from '../../components/Utils/NotFoundMessage'
+import { StyledButton } from '../../components/Utils/LinkButton'
 import { Quantity } from '../../components/Purchase/Quantity'
 
 import { usePurchase } from '../../contexts/PurchaseContext'
