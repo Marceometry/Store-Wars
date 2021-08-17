@@ -1,9 +1,18 @@
 import Head from 'next/head'
+import { GetServerSideProps } from 'next'
+
+import { client } from '../services/apolloClient'
+import { GET_PRODUCTS } from '../services/graphql/getProducts'
+
 import { Banner } from '../components/Banner'
 import { ProductsListRow } from '../components/Products/ProductsListRow'
-import products from '../data/products'
+import { Products } from '../data/products'
 
-export default function Home() {
+type HomeProps = {
+  products: Products
+}
+
+export default function Home({ products }: HomeProps) {
   return (
     <main>
       <Head>
@@ -25,4 +34,12 @@ export default function Home() {
       /> */}
     </main>
   )
+}
+
+export const getStaticProps: GetServerSideProps = async () => {    
+  const { data } = await client.query({ query: GET_PRODUCTS })
+
+  const { products } = data
+
+  return { props: { products } }
 }

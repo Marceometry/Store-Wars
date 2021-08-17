@@ -1,7 +1,11 @@
 import type { AppProps } from 'next/app'
+import { ApolloProvider } from '@apollo/client'
+import { client } from '../services/apolloClient'
+
 import { ThemeContextProvider } from '../contexts/ThemeContext'
 import { SearchContextProvider } from '../contexts/SearchContext'
 import { PurchaseContextProvider } from '../contexts/PurchaseContext'
+
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
@@ -35,7 +39,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <SearchContextProvider>
         <PurchaseContextProvider>
           <Header />
-          <Component {...pageProps} />
+          <ApolloProvider client={client}>
+            <Component {...pageProps} />
+          </ApolloProvider>
         </PurchaseContextProvider>
         <Footer />
       </SearchContextProvider>

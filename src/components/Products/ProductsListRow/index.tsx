@@ -56,8 +56,8 @@ export function ProductsListRow({ products, type, title }: ProductsSectionProps)
                     width: 10 * 300,
                     marginLeft: scrollX
                 }}>
-                    {products.map((product, index) => (
-                        <ProductCard key={product.id + index} bg="var(--background)" width={250} product={product} />
+                    {products.map(product => (
+                        <ProductCard key={product._id} bg="var(--background)" width={250} product={product} />
                     ))}
                 </div>
 
