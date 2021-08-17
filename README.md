@@ -23,6 +23,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Next.js](https://nextjs.org)
 - [TypeScript](https://www.typescriptlang.org)
 - [Sass](https://sass-lang.com/)
+- [GraphQL](https://graphql.org/)
+- [Apollo Client](https://www.apollographql.com/blog/apollo-client/next-js/next-js-getting-started/)
 
 ## 💻 Projeto
 
