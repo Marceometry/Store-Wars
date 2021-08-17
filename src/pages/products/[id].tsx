@@ -15,7 +15,7 @@ import { Quantity } from '../../components/Purchase/Quantity'
 import { usePurchase } from '../../contexts/PurchaseContext'
 import { Product } from '../../utils/productType'
 
-import style from '../../styles/productPage.module.scss'
+import style from './style.module.scss'
 
 type ProductProps = {
     product: Product
