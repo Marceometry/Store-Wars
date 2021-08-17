@@ -6,10 +6,10 @@ import { GET_PRODUCTS } from '../services/graphql/getProducts'
 
 import { Banner } from '../components/Banner'
 import { ProductsListRow } from '../components/Products/ProductsListRow'
-import { Products } from '../data/products'
+import { Product } from '../utils/productType'
 
 type HomeProps = {
-  products: Products
+  products: Product[]
 }
 
 export default function Home({ products }: HomeProps) {

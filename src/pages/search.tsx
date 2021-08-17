@@ -21,7 +21,7 @@ export default function Search() {
                 <div className={style.products}>
                     {productsResult.map((product, index) => (
                         <ProductCard
-                            key={`${product.id}${index}`}
+                            key={`${product._id}${index}`}
                             bg="var(--bodyBackground)"
                             width={256} product={product}
                         />

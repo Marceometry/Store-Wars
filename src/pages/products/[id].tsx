@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 
+import { client } from '../../services/apolloClient'
+import { GET_PRODUCT } from '../../services/graphql/getProduct'
+import { GET_PRODUCTS } from '../../services/graphql/getProducts'
+
 import { ImagesGrid } from '../../components/Products/ImagesGrid'
 import { PurchaseInfo } from '../../components/Purchase/PurchaseInfo'
 import { NotFoundMessage } from '../../components/NotFoundMessage'
@@ -9,7 +13,7 @@ import { StyledButton } from '../../components/LinkButton'
 import { Quantity } from '../../components/Purchase/Quantity'
 
 import { usePurchase } from '../../contexts/PurchaseContext'
-import products, { Product } from '../../data/products'
+import { Product } from '../../utils/productType'
 
 import style from '../../styles/productPage.module.scss'
 
@@ -25,7 +29,7 @@ export default function ProductPage({ product }: ProductProps) {
     useEffect(() => {
         if (!product) return
         const isInCart = productsInCart.filter(productInCart => {
-            return productInCart.id === product.id
+            return productInCart.id === product._id
         })
         
         setIsInCart(isInCart[0] ? true : false)
@@ -33,7 +37,7 @@ export default function ProductPage({ product }: ProductProps) {
     
     if (!product) return <NotFoundMessage message="Produto não encontrado" />
 
-    const { id, name, description, images, price } = product
+    const { _id, name, description, images, price } = product
     
     return (
         <main className={`${style.container} container`}>
@@ -42,7 +46,7 @@ export default function ProductPage({ product }: ProductProps) {
             </Head>
 
             <div>
-                <ImagesGrid images={images} productID={id} />
+                <ImagesGrid images={images} productID={_id} />
                 
                 <div className={style.productDescription}>
                     <h1>{name}</h1>
@@ -65,8 +69,8 @@ export default function ProductPage({ product }: ProductProps) {
                     <StyledButton
                         onClick={() => {
                             !isInCart ? (
-                                addProductToCart(product.id, quantity)
-                            ) : removeProductFromCart(product.id)
+                                addProductToCart(product._id, quantity)
+                            ) : removeProductFromCart(product._id)
                         }}
                         bgColor="var(--yellow)"
                         outlined
@@ -80,19 +84,24 @@ export default function ProductPage({ product }: ProductProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = products.map((product) => ({
-        params: { id: product.id },
+    const { data } = await client.query({ query: GET_PRODUCTS })
+
+    const paths = data.products.map((product: Product) => ({
+        params: { id: product._id },
     }))
 
     return { paths, fallback: 'blocking' }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {    
-    const product = products.find((product) => {
-        return product.id === params?.id
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const { data, error } = await client.query({
+        query: GET_PRODUCT,
+        variables: { id: params?.id }
     })
 
-    if (!product) { return { props: { product: null } } }
+    if (error) { return { props: { product: null } } }
+
+    const { product } = data
 
     return {
         props: { product },
